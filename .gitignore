@@ -1,0 +1,69 @@
+# Git Ignore for Visual Studio 2022 and .NET
+
+# Visual Studio specific
+.vs/
+
+# Build artifacts
+bin/
+obj/
+out/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Logs
+logs/
+*.log
+
+# NuGet packages
+*.nupkg
+packages/
+
+# Entity Framework Migrations
+Migrations/
+
+# Dotnet-specific
+project.lock.json
+project.assets.json
+
+# Temporary files
+*.tmp
+*.temp
+~$*
+
+# Rider
+.idea/
+
+# Ignore secrets
+secrets.json
+
+# Ignore database files
+*.mdf
+*.ldf
+*.sqlite
+
+# Ignore publish settings
+*.publishsettings
+*.pubxml
+*.pubxml.user
+
+# Ignore Resharper files
+_ReSharper.Caches/
+
+# Ignore Test results
+TestResults/
+
+# Ignore compiled DLLs and EXEs
+*.dll
+*.exe
+*.pdb
+
+# Ignore coverage files
+coverage/
+*.coverage
+
+# Ignore generated code files
+GeneratedCode/
