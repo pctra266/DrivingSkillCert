@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" />
 
+        <Button x:Name="btnGoToCourse" Content="Go to Course" Width="150" Height="40"
+                VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10"
+                Click="GoToCourse_Click" />
     </Grid>
 </Window>
