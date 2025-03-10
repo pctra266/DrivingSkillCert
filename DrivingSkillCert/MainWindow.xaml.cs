@@ -27,7 +27,7 @@ namespace DrivingSkillCert
         {
             btnGoToCourse.Visibility = Visibility.Collapsed;
 
-            MainFrame.Navigate(new Courses());
+            MainFrame.Navigate(new ManageCourses());
         }
     }
 }
