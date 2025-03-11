@@ -10,18 +10,13 @@ namespace DrivingSkillCert.DAO
 {
     internal class ExamDAO
     {
-        private readonly DrivingSkillCertContext _context;
-
-        public ExamDAO()
-        {
-            _context = new DrivingSkillCertContext();
-        }
-
         public List<Exam> GetExams()
         {
+            using var context = new DrivingSkillCertContext();
+
             try
             {
-                return _context.Exams
+                return context.Exams
                     .Include(e => e.Course.Teacher)
                     .ToList();
             }
@@ -33,10 +28,12 @@ namespace DrivingSkillCert.DAO
 
         public void AddExam(Exam exam)
         {
+            using var context = new DrivingSkillCertContext();
+
             try
             {
-                _context.Exams.Add(exam);
-                _context.SaveChanges();
+                context.Exams.Add(exam);
+                context.SaveChanges();
             }
             catch (Exception ex)
             {
@@ -47,10 +44,12 @@ namespace DrivingSkillCert.DAO
 
         public void UpdateExam(Exam exam)
         {
+            using var context = new DrivingSkillCertContext();
+
             try
             {
-                _context.Exams.Update(exam);
-                _context.SaveChanges();
+                context.Exams.Update(exam);
+                context.SaveChanges();
             }
             catch (Exception ex)
             {
@@ -61,11 +60,13 @@ namespace DrivingSkillCert.DAO
 
         public void DeleteExam(int id)
         {
+            using var context = new DrivingSkillCertContext();
+
             try
             {   
                 Exam  exam = FindExamById(id);
-                _context.Exams.Remove(exam);
-                _context.SaveChanges();
+                context.Exams.Remove(exam);
+                context.SaveChanges();
             }
             catch (Exception ex)
             {
@@ -76,9 +77,11 @@ namespace DrivingSkillCert.DAO
 
         public Exam FindExamById (int id)
         {
+            using var context = new DrivingSkillCertContext();
+
             try
             {
-                return _context.Exams.Include(e => e.Course).Where(e => e.ExamId == id).FirstOrDefault();
+                return context.Exams.Include(e => e.Course).Where(e => e.ExamId == id).FirstOrDefault();
             }
             catch (Exception ex)
             {

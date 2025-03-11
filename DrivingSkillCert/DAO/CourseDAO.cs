@@ -10,18 +10,14 @@ namespace DrivingSkillCert.DAO
 {
     internal class CourseDAO
     {
-        private readonly DrivingSkillCertContext _context;
-
-        public CourseDAO()
-        {
-            _context =  new DrivingSkillCertContext();
-        }
+      
 
         public List<Course> GetCourses()
         {
+            using var context = new DrivingSkillCertContext();
             try
             {
-                return _context.Courses.Include(t => t.Teacher).ToList();
+                return context.Courses.Include(t => t.Teacher).ToList();
             }
             catch (Exception ex)
             {
@@ -31,10 +27,12 @@ namespace DrivingSkillCert.DAO
 
         public void CreateCourse(Course course)
         {
+            using var context = new DrivingSkillCertContext();
+
             try
             {
-                _context.Courses.Add(course);
-                _context.SaveChanges();
+                context.Courses.Add(course);
+                context.SaveChanges();
             }
             catch (Exception ex)
             {
@@ -44,10 +42,12 @@ namespace DrivingSkillCert.DAO
 
         public void UpdateCourse(Course course)
         {
+            using var context = new DrivingSkillCertContext();
+
             try
             {
-                _context.Courses.Update(course);
-                _context.SaveChanges();
+                context.Courses.Update(course);
+                context.SaveChanges();
             }
             catch (Exception ex)
             {
@@ -57,13 +57,15 @@ namespace DrivingSkillCert.DAO
 
         public void DeleteCourse(int courseId)
         {
+            using var context = new DrivingSkillCertContext();
+
             try
             {
-                var course = _context.Courses.Find(courseId);
+                var course = context.Courses.Find(courseId);
                 if (course != null)
                 {
-                    _context.Courses.Remove(course);
-                    _context.SaveChanges();
+                    context.Courses.Remove(course);
+                    context.SaveChanges();
                 }
             }
             catch (Exception ex)
@@ -75,9 +77,11 @@ namespace DrivingSkillCert.DAO
         // Optional: Get single course by ID
         public Course GetCourseById(int courseId)
         {
+            using var context = new DrivingSkillCertContext();
+
             try
             {
-                return _context.Courses
+                return context.Courses
                     .Include(c => c.Teacher)
                     .FirstOrDefault(c => c.CourseId == courseId);
             }
