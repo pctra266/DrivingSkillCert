@@ -29,11 +29,6 @@ namespace DrivingSkillCert
 
         public ManageCourses()
         {
-            // Setup EF context - in a real app, this should be done via dependency injection
-            var options = new DbContextOptionsBuilder<DrivingSkillCertContext>()
-                .UseSqlServer("Your_Connection_String_Here")
-                .Options;
-            var context = new DrivingSkillCertContext(options);
 
             courseDAO = new CourseDAO();
             userDAO = new UserDAO();
@@ -172,6 +167,20 @@ namespace DrivingSkillCert
             cmbTeacher.SelectedIndex = -1;
             dpStartDate.SelectedDate = null;
             dpEndDate.SelectedDate = null;
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            if (NavigationService.CanGoBack)
+            {
+                NavigationService.GoBack();
+            }
+            else
+            {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                Window.GetWindow(this).Close();
+            }
         }
     }
 }

@@ -22,7 +22,7 @@ namespace DrivingSkillCert.DAO
             try
             {
                 return _context.Exams
-                    .Include(e => e.Course)
+                    .Include(e => e.Course.Teacher)
                     .ToList();
             }
             catch (Exception ex)
@@ -69,7 +69,7 @@ namespace DrivingSkillCert.DAO
             }
             catch (Exception ex)
             {
-                throw new Exception("Error update exams", ex);
+                throw new Exception("Error delete exams", ex);
 
             }
         }

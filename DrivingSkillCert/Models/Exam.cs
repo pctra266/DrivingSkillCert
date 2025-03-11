@@ -9,7 +9,7 @@ public partial class Exam
 
     public int CourseId { get; set; }
 
-    public DateOnly Date { get; set; }
+    public DateTime Date { get; set; }
 
     public string Room { get; set; } = null!;
 

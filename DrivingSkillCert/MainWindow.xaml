@@ -9,8 +9,10 @@
     <Grid>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" />
 
-        <Button x:Name="btnGoToCourse" Content="Go to Course" Width="150" Height="40"
-                VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10"
-                Click="GoToCourse_Click" />
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal">
+            <Button x:Name="btnGoToCourse" Content="Go to Course" Width="150" Height="40" Margin="10" Click="GoToCourse_Click" />
+            <Button x:Name="btnGoToExam" Content="Go to Exam" Width="150" Height="40" Margin="10" Click="GoToExam_Click" />
+        </StackPanel>
+   
     </Grid>
 </Window>

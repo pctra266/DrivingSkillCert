@@ -26,8 +26,16 @@ namespace DrivingSkillCert
         private void GoToCourse_Click(object sender, RoutedEventArgs e)
         {
             btnGoToCourse.Visibility = Visibility.Collapsed;
+            btnGoToExam.Visibility = Visibility.Collapsed;
 
             MainFrame.Navigate(new ManageCourses());
+        }
+        private void GoToExam_Click(object sender, RoutedEventArgs e)
+        {
+            btnGoToCourse.Visibility = Visibility.Collapsed;
+            btnGoToExam.Visibility = Visibility.Collapsed;
+
+            MainFrame.Navigate(new ManageExam());
         }
     }
 }
