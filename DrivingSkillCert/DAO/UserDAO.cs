@@ -29,7 +29,7 @@ namespace DrivingSkillCert.DAO
             }
         }
 
-        internal IEnumerable GetUsersByRole(string role)
+        internal List<User> GetUsersByRole(string role)
         {
             try
             {

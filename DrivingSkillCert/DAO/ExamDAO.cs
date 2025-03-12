@@ -10,6 +10,7 @@ namespace DrivingSkillCert.DAO
 {
     internal class ExamDAO
     {
+
         public List<Exam> GetExams()
         {
             using var context = new DrivingSkillCertContext();
@@ -77,7 +78,7 @@ namespace DrivingSkillCert.DAO
 
         public Exam FindExamById (int id)
         {
-            using var context = new DrivingSkillCertContext();
+                        using var context = new DrivingSkillCertContext();
 
             try
             {

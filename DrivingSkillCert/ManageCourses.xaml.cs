@@ -143,7 +143,6 @@ namespace DrivingSkillCert
             }
         }
 
-        // Rest of the methods remain the same (btnCancel_Click, btnRefresh_Click, etc.)
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
