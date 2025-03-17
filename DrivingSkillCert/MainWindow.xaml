@@ -13,6 +13,9 @@
             <Button x:Name="btnGoToCourse" Content="Go to Course" Width="150" Height="40" Margin="10" Click="GoToCourse_Click" />
             <Button x:Name="btnGoToExam" Content="Go to Exam" Width="150" Height="40" Margin="10" Click="GoToExam_Click" />
             <Button x:Name="btnGoToUser" Content="Go to User" Width="150" Height="40" Margin="10" Click="btnGoToUser_Click"  />
+            <Button x:Name="btnGoToCertificate" Content="Go to Certificate" Width="150" Height="40" Margin="10" Click="btnGoToCertificate_Click"  />
+            <Button x:Name="btnGoToResult" Content="Go to Result" Width="150" Height="40" Margin="10" Click="btnGoToResult_Click"  />
+            <Button x:Name="btnGoToRegistration" Content="Go to Registration" Width="150" Height="40" Margin="10" Click="btnGoToRegistration_Click"  />
         </StackPanel>
    
     </Grid>

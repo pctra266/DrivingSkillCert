@@ -1,0 +1,79 @@
+﻿<Page x:Class="DrivingSkillCert.ManageResult"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ManageResult">
+
+    <Grid Background="LightSteelBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header và các nút điều hướng -->
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <Button x:Name="btnBack" Content="Back" Click="btnBack_Click" Margin="0,0,10,0" Padding="10,5"/>
+            <Button x:Name="btnAdd" Content="Add New Result" Click="btnAdd_Click" Margin="0,0,10,0" Padding="10,5"/>
+            <Button x:Name="btnRefresh" Content="Refresh" Click="btnRefresh_Click" Padding="10,5"/>
+        </StackPanel>
+
+        <!-- Danh sách Result -->
+        <DataGrid Grid.Row="1" x:Name="dgResults" AutoGenerateColumns="False" 
+                  Margin="10" IsReadOnly="True" SelectionChanged="dgResults_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Visibility="Collapsed" Header="ID" Binding="{Binding ResultID}" Width="50"/>
+                <DataGridTextColumn Header="Exam ID" Binding="{Binding ExamID}" Width="80"/>
+                <DataGridTextColumn Header="User ID" Binding="{Binding UserID}" Width="80"/>
+                <DataGridTextColumn Header="Score" Binding="{Binding Score}" Width="80"/>
+                <DataGridTextColumn Header="Pass Status" Binding="{Binding PassStatus}" Width="80"/>
+                <DataGridTemplateColumn Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="Edit" Click="btnEdit_Click" Margin="0,0,5,0"/>
+                                <Button Content="Delete" Click="btnDelete_Click"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Panel chi tiết Result (ẩn mặc định) -->
+        <Border Grid.Row="2" Background="White" Margin="10" Padding="10" Visibility="Collapsed" x:Name="detailPanel">
+            <StackPanel>
+                <TextBlock Text="Result Details" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock Text="Exam ID:" Width="120"/>
+                    <TextBox x:Name="txtExamID" Width="200"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock Text="User ID:" Width="120"/>
+                    <TextBox x:Name="txtUserID" Width="200"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock Text="Score:" Width="120"/>
+                    <TextBox x:Name="txtScore" Width="200"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock Text="Pass Status:" Width="120"/>
+                    <!-- Sử dụng CheckBox để đại diện cho giá trị Boolean -->
+                    <CheckBox x:Name="chkPassStatus" Content="Passed" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button x:Name="btnSave" Content="Save" Click="btnSave_Click" Margin="0,0,10,0" Padding="10,5"/>
+                    <Button x:Name="btnCancel" Content="Cancel" Click="btnCancel_Click" Padding="10,5"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

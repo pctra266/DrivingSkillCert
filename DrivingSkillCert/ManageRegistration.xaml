@@ -1,0 +1,82 @@
+﻿<Page x:Class="DrivingSkillCert.ManageRegistration"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Manage Registration">
+
+    <Grid Background="LightCyan">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header với các nút Back, Add New Registration, Refresh -->
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <Button x:Name="btnBack" Content="Back" Click="btnBack_Click" Margin="0,0,10,0" Padding="10,5"/>
+            <Button x:Name="btnAdd" Content="Add New Registration" Click="btnAdd_Click" Margin="0,0,10,0" Padding="10,5"/>
+            <Button x:Name="btnRefresh" Content="Refresh" Click="btnRefresh_Click" Padding="10,5"/>
+        </StackPanel>
+
+        <!-- DataGrid hiển thị danh sách Registration -->
+        <DataGrid Grid.Row="1" x:Name="dgRegistrations" AutoGenerateColumns="False" 
+                  Margin="10" IsReadOnly="True" SelectionChanged="dgRegistrations_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Visibility="Collapsed" Header="ID" Binding="{Binding RegistrationID}" Width="50"/>
+                <DataGridTextColumn Header="User ID" Binding="{Binding UserID}" Width="80"/>
+                <DataGridTextColumn Header="Course ID" Binding="{Binding CourseID}" Width="80"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="100"/>
+                <DataGridTextColumn Header="Comments" Binding="{Binding Comments}" Width="*"/>
+                <DataGridTemplateColumn Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="Edit" Click="btnEdit_Click" Margin="0,0,5,0"/>
+                                <Button Content="Delete" Click="btnDelete_Click"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Panel chi tiết Registration (ẩn mặc định) -->
+        <Border Grid.Row="2" Background="White" Margin="10" Padding="10" Visibility="Collapsed" x:Name="detailPanel">
+            <StackPanel>
+                <TextBlock Text="Registration Details" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock Text="User ID:" Width="120"/>
+                    <TextBox x:Name="txtUserID" Width="200"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock Text="Course ID:" Width="120"/>
+                    <TextBox x:Name="txtCourseID" Width="200"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock Text="Status:" Width="120"/>
+                    <ComboBox x:Name="cmbStatus" Width="200">
+                        <ComboBoxItem Content="Pending"/>
+                        <ComboBoxItem Content="Approved"/>
+                        <ComboBoxItem Content="Rejected"/>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock Text="Comments:" Width="120"/>
+                    <TextBox x:Name="txtComments" Width="200" Height="60" TextWrapping="Wrap" AcceptsReturn="True"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button x:Name="btnSave" Content="Save" Click="btnSave_Click" Margin="0,0,10,0" Padding="10,5"/>
+                    <Button x:Name="btnCancel" Content="Cancel" Click="btnCancel_Click" Padding="10,5"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

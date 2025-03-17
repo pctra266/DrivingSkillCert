@@ -1,0 +1,78 @@
+﻿<Page x:Class="DrivingSkillCert.ManageCertificate"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ManageCertificate">
+
+    <Grid Background="LightGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header và các nút điều hướng -->
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <Button x:Name="btnBack" Content="Back" Click="btnBack_Click" Margin="0,0,10,0" Padding="10,5"/>
+            <Button x:Name="btnAdd" Content="Add New Certificate" Click="btnAdd_Click" Margin="0,0,10,0" Padding="10,5"/>
+            <Button x:Name="btnRefresh" Content="Refresh" Click="btnRefresh_Click" Padding="10,5"/>
+        </StackPanel>
+
+        <!-- Danh sách Certificate -->
+        <DataGrid Grid.Row="1" x:Name="dgCertificates" AutoGenerateColumns="False" 
+                  Margin="10" IsReadOnly="True" SelectionChanged="dgCertificates_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Visibility="Collapsed" Header="ID" Binding="{Binding CertificateID}" Width="50"/>
+                <DataGridTextColumn Header="UserID" Binding="{Binding UserID}" Width="80"/>
+                <DataGridTextColumn Header="Issued Date" Binding="{Binding IssuedDate}" Width="100"/>
+                <DataGridTextColumn Header="Expiration Date" Binding="{Binding ExpirationDate}" Width="100"/>
+                <DataGridTextColumn Header="Certificate Code" Binding="{Binding CertificateCode}" Width="*"/>
+                <DataGridTemplateColumn Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="Edit" Click="btnEdit_Click" Margin="0,0,5,0"/>
+                                <Button Content="Delete" Click="btnDelete_Click"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Panel chi tiết Certificate (ẩn mặc định) -->
+        <Border Grid.Row="2" Background="White" Margin="10" Padding="10" Visibility="Collapsed" x:Name="detailPanel">
+            <StackPanel>
+                <TextBlock Text="Certificate Details" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock Text="UserID:" Width="120"/>
+                    <TextBox x:Name="txtUserID" Width="200"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock Text="Issued Date:" Width="120"/>
+                    <DatePicker x:Name="dpIssuedDate" Width="200"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock Text="Expiration Date:" Width="120"/>
+                    <DatePicker x:Name="dpExpirationDate" Width="200"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock Text="Certificate Code:" Width="120"/>
+                    <TextBox x:Name="txtCertificateCode" Width="200"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button x:Name="btnSave" Content="Save" Click="btnSave_Click" Margin="0,0,10,0" Padding="10,5"/>
+                    <Button x:Name="btnCancel" Content="Cancel" Click="btnCancel_Click" Padding="10,5"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>
