@@ -40,5 +40,43 @@ namespace DrivingSkillCert.DAO
                 throw new Exception("Error retrieving users", ex);
             }
         }
+
+        public void DeleteUser(int userId)
+        {
+            using (var context = new DrivingSkillCertContext())
+            {
+                var user = context.Users.Find(userId);
+                if (user != null)
+                {
+                    context.Users.Remove(user);
+                    context.SaveChanges();
+                }
+            }
+        }
+        public void AddUser(User user)
+        {
+            using (var context = new DrivingSkillCertContext())
+            {
+                try
+                {
+                    context.Users.Add(user);
+                    context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error creating user", ex);
+                }
+            }
+        }
+
+        // Cập nhật User
+        public void UpdateUser(User user)
+        {
+            using (var context = new DrivingSkillCertContext())
+            {
+                context.Users.Update(user);
+                context.SaveChanges();
+            }
+        }
     }
 }

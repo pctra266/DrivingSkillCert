@@ -27,6 +27,7 @@ namespace DrivingSkillCert
         {
             btnGoToCourse.Visibility = Visibility.Collapsed;
             btnGoToExam.Visibility = Visibility.Collapsed;
+            btnGoToUser.Visibility = Visibility.Collapsed;
 
             MainFrame.Navigate(new ManageCourses());
         }
@@ -34,8 +35,18 @@ namespace DrivingSkillCert
         {
             btnGoToCourse.Visibility = Visibility.Collapsed;
             btnGoToExam.Visibility = Visibility.Collapsed;
+            btnGoToUser.Visibility = Visibility.Collapsed;
 
             MainFrame.Navigate(new ManageExam());
+        }
+
+        private void btnGoToUser_Click(object sender, RoutedEventArgs e)
+        {
+            btnGoToCourse.Visibility = Visibility.Collapsed;
+            btnGoToExam.Visibility = Visibility.Collapsed;
+            btnGoToUser.Visibility = Visibility.Collapsed;
+
+            MainFrame.Navigate(new ManageUser());
         }
     }
 }

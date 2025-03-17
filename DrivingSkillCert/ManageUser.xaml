@@ -1,0 +1,92 @@
+﻿<Page x:Class="DrivingSkillCert.ManageUser"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DrivingSkillCert"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ManageUser">
+
+    <Grid Background="Aqua">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <!-- Header and Buttons -->
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <Button x:Name="btnBack" Content="Back" Click="btnBack_Click" Margin="0,0,10,0" Padding="10,5"></Button>
+            <Button x:Name="btnAdd" Content="Add New User" Click="btnAdd_Click" Margin="0,0,10,0" Padding="10,5"/>
+            <Button x:Name="btnRefresh" Content="Refresh" Click="btnRefresh_Click" Padding="10,5"/>
+        </StackPanel>
+
+        <!-- Users List -->
+        <DataGrid Grid.Row="1" x:Name="dgUsers" AutoGenerateColumns="False" 
+           Margin="10"
+            IsReadOnly="True" SelectionChanged="dgUsers_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Visibility="Collapsed" Header="ID" Binding="{Binding UserId}" Width="50"/>
+                <DataGridTextColumn Header="FullName" Binding="{Binding FullName}" Width="*"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="80"/>
+                <DataGridTextColumn Header="Password" Binding="{Binding Password}" Width="100"/>
+                <DataGridTextColumn Header="Role" Binding="{Binding Role}" Width="100"/>
+                <DataGridTextColumn Header="Class" Binding="{Binding Class}" Width="100"/>
+                <DataGridTextColumn Header="School" Binding="{Binding School}" Width="100"/>
+                <DataGridTextColumn Header="Phone" Binding="{Binding Phone}" Width="100"/>
+                <DataGridTemplateColumn Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="Edit" Click="btnEdit_Click" Margin="0,0,5,0"/>
+                                <Button Content="Delete" Click="btnDelete_Click"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <!-- Users Detail Panel -->
+        <Border Grid.Row="2" Background="White" Margin="10" Padding="10" Visibility="Collapsed" x:Name="detailPanel">
+            <StackPanel>
+                <TextBlock Text="User Details" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock Text="User Name:" Width="100"/>
+                    <TextBox x:Name="txtUserName" Width="200"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock Text="Email:" Width="100"/>
+                    <TextBox x:Name="txtEmail" Width="200"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock Text="Password:" Width="100"/>
+                    <TextBox x:Name="txtPassword" Width="200"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock Text="Role:" Width="100"/>
+                    <ComboBox x:Name="cmbRole" Width="200">
+                        <ComboBoxItem Content="Student" />
+                        <ComboBoxItem Content="Teacher" />
+                        <ComboBoxItem Content="TrafficPolice" />
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock Text="Class:" Width="100"/>
+                    <TextBox x:Name="txtClass" Width="200"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock Text="School:" Width="100"/>
+                    <TextBox x:Name="txtSchool" Width="200"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock Text="Phone:" Width="100"/>
+                    <TextBox x:Name="txtPhone" Width="200"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button x:Name="btnSave" Content="Save" Click="btnSave_Click" Margin="0,0,10,0" Padding="10,5"/>
+                    <Button x:Name="btnCancel" Content="Cancel" Click="btnCancel_Click" Padding="10,5"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>
