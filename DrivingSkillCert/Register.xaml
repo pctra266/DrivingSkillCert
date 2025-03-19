@@ -1,0 +1,94 @@
+﻿<Window x:Class="DrivingSkillCert.Register"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DrivingSkillCert"
+        mc:Ignorable="d"
+        Title="Register" Height="450" Width="800">
+    <Window.Resources>
+        <!-- Hiệu ứng bóng đổ nhẹ -->
+        <DropShadowEffect x:Key="DropShadowEffect" BlurRadius="5" ShadowDepth="1" Opacity="0.15"/>
+
+        <!-- Style cho TextBox -->
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#aaa"/>
+            <Setter Property="FontSize" Value="12"/>
+        </Style>
+
+        <!-- Style cho PasswordBox -->
+        <Style TargetType="PasswordBox">
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#aaa"/>
+            <Setter Property="FontSize" Value="12"/>
+        </Style>
+
+        <!-- Style cho Button -->
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Width" Value="90"/>
+            <Setter Property="Height" Value="32"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Background" Value="#0078D7"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Border Width="250" Padding="10" Background="White" CornerRadius="6"
+            VerticalAlignment="Center" HorizontalAlignment="Center"
+            Effect="{StaticResource DropShadowEffect}">
+
+            <StackPanel>
+                <TextBlock Text="Register" FontSize="16" FontWeight="Bold" Foreground="#333" 
+                       HorizontalAlignment="Center" Margin="0,0,0,6"/>
+
+                <TextBlock Text="Full Name" FontSize="10" Foreground="#555"/>
+                <TextBox Name="txtFullName"/>
+
+                <TextBlock Text="Email" FontSize="10" Foreground="#555"/>
+                <TextBox Name="txtEmail"/>
+
+                <TextBlock Text="Password" FontSize="10" Foreground="#555"/>
+                <PasswordBox Name="txtPassword"/>
+
+                <TextBlock Text="Phone" FontSize="10" Foreground="#555"/>
+                <TextBox Name="txtPhone"/>
+
+                <TextBlock Text="Class" FontSize="10" Foreground="#555"/>
+                <TextBox Name="txtClass"/>
+
+                <TextBlock Text="School" FontSize="10" Foreground="#555"/>
+                <TextBox Name="txtSchool"/>
+
+                <!-- Đặt 2 nút button cùng hàng -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                    <Button Content="Register" Name="btnRegister" Background="#0078D7" Click="btnRegister_Click"/>
+                    <Button Content="Login" Name="btnLogin" Background="#28a745" Click="btnLogin_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+
+
+</Window>

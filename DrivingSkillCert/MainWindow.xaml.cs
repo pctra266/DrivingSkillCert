@@ -21,6 +21,46 @@ namespace DrivingSkillCert
         public MainWindow()
         {
             InitializeComponent();
+            if (Application.Current.Properties.Contains("LoggedInUser"))
+            {
+                User currentUser =
+               (DrivingSkillCert.Models.User)Application.Current.Properties["LoggedInUser"];
+                SetButtonVisibilityByRole(currentUser.Role);
+            }
+
+        }
+        private void SetButtonVisibilityByRole(string role)
+        {
+            // Ẩn tất cả các nút trước
+            btnGoToCourse.Visibility = Visibility.Collapsed;
+            btnGoToExam.Visibility = Visibility.Collapsed;
+            btnGoToUser.Visibility = Visibility.Collapsed;
+            btnGoToCertificate.Visibility = Visibility.Collapsed;
+            btnGoToResult.Visibility = Visibility.Collapsed;
+            btnGoToRegistration.Visibility = Visibility.Collapsed;
+
+            // Hiển thị các nút theo role
+            switch (role)
+            {
+                case "Student":
+                    btnGoToCourse.Visibility = Visibility.Visible;
+                    btnGoToExam.Visibility = Visibility.Visible;
+                    btnGoToResult.Visibility = Visibility.Visible;
+                    btnGoToRegistration.Visibility = Visibility.Visible;
+                    break;
+                case "Teacher":
+                    btnGoToExam.Visibility = Visibility.Visible;
+                    btnGoToUser.Visibility = Visibility.Visible;
+                    btnGoToCertificate.Visibility = Visibility.Visible;
+                    break;
+                case "TrafficPolice":
+                    btnGoToCertificate.Visibility = Visibility.Visible;
+                    btnGoToResult.Visibility = Visibility.Visible;
+                    break;
+                default:
+                    MessageBox.Show("Vai trò không hợp lệ");
+                    break;
+            }
         }
 
         private void GoToCourse_Click(object sender, RoutedEventArgs e)
@@ -92,6 +132,23 @@ namespace DrivingSkillCert
             btnGoToRegistration.Visibility = Visibility.Collapsed;
 
             MainFrame.Navigate(new ManageRegistration());
+        }
+        private void Profile_Click(object sender, RoutedEventArgs e)
+        {
+            if (btnProfile.ContextMenu != null)
+            {
+                btnProfile.ContextMenu.IsOpen = true; // Mở menu khi click
+            }
+        }
+        private void ChangePassword_Click(object sender, RoutedEventArgs e)
+        {
+            ChangePasswordWindow changePasswordWindow = new ChangePasswordWindow();
+            changePasswordWindow.ShowDialog(); // Mở dưới dạng popup
+        }
+        private void PersonalInfo_Click(object sender, RoutedEventArgs e)
+        {
+            PersonalInfoWindow personalInfoWindow = new PersonalInfoWindow();
+            personalInfoWindow.ShowDialog(); // Mở dưới dạng popup
         }
     }
 }
