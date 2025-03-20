@@ -24,7 +24,8 @@ CREATE TABLE Users (
     Role NVARCHAR(20) CHECK (Role IN ('Student', 'Teacher', 'TrafficPolice')) NOT NULL,
     Class NVARCHAR(50) NULL,
     School NVARCHAR(100) NULL,
-    Phone NVARCHAR(15) NULL
+    Phone NVARCHAR(15) NULL,
+	IsDelete bit default 0
 );
 
 CREATE TABLE Courses (
@@ -33,7 +34,9 @@ CREATE TABLE Courses (
     TeacherID INT NOT NULL,
     StartDate DATE NOT NULL,
     EndDate DATE NOT NULL,
-    FOREIGN KEY (TeacherID) REFERENCES Users(UserID)
+    FOREIGN KEY (TeacherID) REFERENCES Users(UserID),
+	IsDelete bit default 0
+
 );
 
 CREATE TABLE Registrations (
@@ -43,7 +46,8 @@ CREATE TABLE Registrations (
     Status NVARCHAR(10) DEFAULT 'Pending' CHECK (Status IN ('Pending', 'Approved', 'Rejected')),
     Comments NVARCHAR(MAX) NULL,
     FOREIGN KEY (UserID) REFERENCES Users(UserID),
-    FOREIGN KEY (CourseID) REFERENCES Courses(CourseID)
+    FOREIGN KEY (CourseID) REFERENCES Courses(CourseID),
+	IsDelete bit default 0
 );
 
 CREATE TABLE Exams (
@@ -51,7 +55,8 @@ CREATE TABLE Exams (
     CourseID INT NOT NULL,
     Date DATE NOT NULL,
     Room NVARCHAR(50) NOT NULL,
-    FOREIGN KEY (CourseID) REFERENCES Courses(CourseID)
+    FOREIGN KEY (CourseID) REFERENCES Courses(CourseID),
+	IsDelete bit default 0
 );
 
 CREATE TABLE Results (
@@ -61,7 +66,8 @@ CREATE TABLE Results (
     Score DECIMAL(5, 2) NOT NULL,
     PassStatus BIT NOT NULL,
     FOREIGN KEY (ExamID) REFERENCES Exams(ExamID),
-    FOREIGN KEY (UserID) REFERENCES Users(UserID)
+    FOREIGN KEY (UserID) REFERENCES Users(UserID),
+	IsDelete bit default 0
 );
 
 CREATE TABLE Certificates (
@@ -70,7 +76,8 @@ CREATE TABLE Certificates (
     IssuedDate DATE NOT NULL,
     ExpirationDate DATE NOT NULL,
     CertificateCode NVARCHAR(50) UNIQUE NOT NULL,
-    FOREIGN KEY (UserID) REFERENCES Users(UserID)
+    FOREIGN KEY (UserID) REFERENCES Users(UserID),
+	IsDelete bit default 0
 );
 
 CREATE TABLE Notifications (
@@ -79,7 +86,8 @@ CREATE TABLE Notifications (
     Message NVARCHAR(MAX) NOT NULL,
     SentDate DATETIME DEFAULT GETDATE(),
     IsRead BIT DEFAULT 0,
-    FOREIGN KEY (UserID) REFERENCES Users(UserID)
+    FOREIGN KEY (UserID) REFERENCES Users(UserID),
+	IsDelete bit default 0
 );
 
 USE DrivingSkillCert

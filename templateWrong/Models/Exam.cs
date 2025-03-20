@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DrivingSkillCert.Models;
+namespace templateWrong.Models;
 
 public partial class Exam
 {
@@ -9,7 +9,7 @@ public partial class Exam
 
     public int CourseId { get; set; }
 
-    public DateTime Date { get; set; }
+    public DateOnly Date { get; set; }
 
     public string Room { get; set; } = null!;
 

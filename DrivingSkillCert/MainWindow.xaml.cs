@@ -47,6 +47,9 @@ namespace DrivingSkillCert
                     btnGoToExam.Visibility = Visibility.Visible;
                     btnGoToResult.Visibility = Visibility.Visible;
                     btnGoToRegistration.Visibility = Visibility.Visible;
+                    btnGoToUser.Visibility = Visibility.Visible;
+                    btnGoToCertificate.Visibility = Visibility.Visible;
+                 
                     break;
                 case "Teacher":
                     btnGoToExam.Visibility = Visibility.Visible;
@@ -143,12 +146,15 @@ namespace DrivingSkillCert
         private void ChangePassword_Click(object sender, RoutedEventArgs e)
         {
             ChangePasswordWindow changePasswordWindow = new ChangePasswordWindow();
-            changePasswordWindow.ShowDialog(); // Mở dưới dạng popup
+            changePasswordWindow.Show(); // Mở dưới dạng popup
+            this.Close();
         }
         private void PersonalInfo_Click(object sender, RoutedEventArgs e)
         {
             PersonalInfoWindow personalInfoWindow = new PersonalInfoWindow();
-            personalInfoWindow.ShowDialog(); // Mở dưới dạng popup
+            personalInfoWindow.Show(); // Mở dưới dạng popup
+            this.Close();
+
         }
     }
 }
