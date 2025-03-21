@@ -56,7 +56,7 @@ namespace DrivingSkillCert.DAO
                 var registration = context.Registrations.Find(registrationId);
                 if (registration != null)
                 {
-                    context.Registrations.Remove(registration);
+                    registration.IsDelete = true;
                     context.SaveChanges();
                 }
             }

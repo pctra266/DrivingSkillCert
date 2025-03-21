@@ -20,8 +20,8 @@ namespace DrivingSkillCert.DAO
         public List<User> GetUsers()
         {
             try
-            {
-                return _context.Users.ToList();
+            {   
+                return _context.Users.Where(u => !u.Role.Equals("Admin") ).ToList();
             }
             catch (Exception ex)
             {
@@ -47,8 +47,8 @@ namespace DrivingSkillCert.DAO
             {
                 var user = context.Users.Find(userId);
                 if (user != null)
-                {
-                    context.Users.Remove(user);
+                {   
+                    user.IsDelete = true;
                     context.SaveChanges();
                 }
             }

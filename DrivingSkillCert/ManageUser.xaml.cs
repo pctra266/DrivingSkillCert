@@ -52,7 +52,7 @@ namespace DrivingSkillCert
         }
         private void ClearForm()
         {
-            
+
             txtUserName.Text = string.Empty;
             txtPassword.Text = string.Empty;
             txtEmail.Text = string.Empty;
@@ -89,11 +89,11 @@ namespace DrivingSkillCert
             {
                 editingUserId = selectedUser.UserId;
                 txtUserName.Text = selectedUser.FullName;
-                txtPassword.Text = selectedUser.Password ;
+                txtPassword.Text = selectedUser.Password;
                 txtEmail.Text = selectedUser.Email;
-                txtPhone.Text = selectedUser.Phone ;
-                txtClass.Text = selectedUser.Class ;
-                cmbRole.SelectedItem = selectedUser.Role ;
+                txtPhone.Text = selectedUser.Phone;
+                txtClass.Text = selectedUser.Class;
+                cmbRole.SelectedItem = selectedUser.Role;
                 txtSchool.Text = selectedUser.School;
                 detailPanel.Visibility = Visibility.Visible;
             }
@@ -126,7 +126,7 @@ namespace DrivingSkillCert
                 if (string.IsNullOrWhiteSpace(txtUserName.Text) ||
                     string.IsNullOrWhiteSpace(txtPassword.Text) ||
                     string.IsNullOrWhiteSpace(txtEmail.Text) ||
-                    string.IsNullOrWhiteSpace(cmbRole.SelectedItem.ToString())) 
+                    string.IsNullOrWhiteSpace(cmbRole.SelectedItem.ToString()))
                 {
                     MessageBox.Show("Please fill in all required fields");
                     return;
@@ -142,7 +142,7 @@ namespace DrivingSkillCert
                     Role = cmbRole.SelectedItem.ToString(),
                     School = txtSchool.Text
                 };
-                
+
 
                 if (editingUserId.HasValue)
                 {

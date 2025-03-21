@@ -56,7 +56,7 @@ namespace DrivingSkillCert.DAO
                 var certificate = context.Certificates.Find(certificateId);
                 if (certificate != null)
                 {
-                    context.Certificates.Remove(certificate);
+                    certificate.IsDelete = true;
                     context.SaveChanges();
                 }
             }

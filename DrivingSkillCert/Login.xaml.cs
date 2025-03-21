@@ -36,7 +36,11 @@ namespace DrivingSkillCert
             }
             UserDAO userDAO = new UserDAO();
             User account = userDAO.getAccountByEmailAndPassword(username, password);
-            if (account != null)
+            if(account.IsDelete == true)
+            {
+                MessageBox.Show("tài khoản đã bị ban");
+            }
+            if (account != null && account.IsDelete == false)
             {
                 Application.Current.Properties["LoggedInUser"] = account;
                 MainWindow mainWindow = new MainWindow();

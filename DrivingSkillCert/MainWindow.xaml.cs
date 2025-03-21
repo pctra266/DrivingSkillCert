@@ -42,23 +42,22 @@ namespace DrivingSkillCert
             // Hiển thị các nút theo role
             switch (role)
             {
-                case "Student":
+                case "Admin":
                     btnGoToCourse.Visibility = Visibility.Visible;
                     btnGoToExam.Visibility = Visibility.Visible;
                     btnGoToResult.Visibility = Visibility.Visible;
                     btnGoToRegistration.Visibility = Visibility.Visible;
                     btnGoToUser.Visibility = Visibility.Visible;
                     btnGoToCertificate.Visibility = Visibility.Visible;
-                 
+                    break;
+                case "Student":
+
                     break;
                 case "Teacher":
-                    btnGoToExam.Visibility = Visibility.Visible;
-                    btnGoToUser.Visibility = Visibility.Visible;
-                    btnGoToCertificate.Visibility = Visibility.Visible;
+
                     break;
                 case "TrafficPolice":
-                    btnGoToCertificate.Visibility = Visibility.Visible;
-                    btnGoToResult.Visibility = Visibility.Visible;
+
                     break;
                 default:
                     MessageBox.Show("Vai trò không hợp lệ");
@@ -155,6 +154,12 @@ namespace DrivingSkillCert
             personalInfoWindow.Show(); // Mở dưới dạng popup
             this.Close();
 
+        }
+        private void Logout_click(object sender, RoutedEventArgs e)
+        {
+            Login loginwindow = new Login();
+            loginwindow.Show();
+            this.Close();
         }
     }
 }

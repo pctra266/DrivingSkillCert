@@ -37,6 +37,13 @@ namespace DrivingSkillCert
                bool isAdded = UserDAO.upDatePasswordUser(currentUser.UserId, newPassword);
             if (isAdded) {
                 MessageBox.Show("Cập nhật mật khẩu thành công");
+                currentUser.Password = newPassword;
+
+                // Cập nhật lại trên giao diện
+                txtOldPassword.Text = newPassword;
+
+                // Cập nhật trong Application.Current.Properties
+                Application.Current.Properties["LoggedInUser"] = currentUser;
             }
         }
         private void btnBack_Click(object sender, RoutedEventArgs e)

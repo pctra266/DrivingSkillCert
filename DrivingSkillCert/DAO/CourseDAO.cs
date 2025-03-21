@@ -64,7 +64,7 @@ namespace DrivingSkillCert.DAO
                 var course = context.Courses.Find(courseId);
                 if (course != null)
                 {
-                    context.Courses.Remove(course);
+                    course.IsDelete = true;
                     context.SaveChanges();
                 }
             }

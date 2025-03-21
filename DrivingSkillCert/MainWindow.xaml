@@ -29,6 +29,7 @@
                     <ContextMenu x:Name="accountMenu">
                         <MenuItem Header="Change Password" Click="ChangePassword_Click"/>
                         <MenuItem Header="Thông tin cá nhân" Click="PersonalInfo_Click"/>
+                        <MenuItem Header="Logout" Click="Logout_click"/>
                     </ContextMenu>
                 </Button.ContextMenu>
             </Button>

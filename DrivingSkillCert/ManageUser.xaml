@@ -34,6 +34,7 @@
                 <DataGridTextColumn Header="Class" Binding="{Binding Class}" Width="100"/>
                 <DataGridTextColumn Header="School" Binding="{Binding School}" Width="100"/>
                 <DataGridTextColumn Header="Phone" Binding="{Binding Phone}" Width="100"/>
+                <DataGridTextColumn Header="IsDelete" Binding="{Binding IsDelete}" Width="100"/>
                 <DataGridTemplateColumn Width="100">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -82,6 +83,11 @@
                     <TextBlock Text="Phone:" Width="100"/>
                     <TextBox x:Name="txtPhone" Width="200"/>
                 </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock Text="Is Delete:" Width="100"/>
+                    <CheckBox x:Name="chkIsDelete"/>
+                </StackPanel>
+                
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <Button x:Name="btnSave" Content="Save" Click="btnSave_Click" Margin="0,0,10,0" Padding="10,5"/>
                     <Button x:Name="btnCancel" Content="Cancel" Click="btnCancel_Click" Padding="10,5"/>

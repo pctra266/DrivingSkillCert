@@ -66,7 +66,7 @@ namespace DrivingSkillCert.DAO
             try
             {   
                 Exam  exam = FindExamById(id);
-                context.Exams.Remove(exam);
+                exam.IsDelete = true;
                 context.SaveChanges();
             }
             catch (Exception ex)
