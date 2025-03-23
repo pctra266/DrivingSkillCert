@@ -39,7 +39,7 @@ CREATE TABLE Courses (
 
 );
 
-CREATE TABLE BankQuestions (
+CREATE TABLE BankQuestion (
     BankID INT PRIMARY KEY IDENTITY(1,1),
 	CourseID INT REFERENCES Courses(CourseID),
 	BankName NVARCHAR(100),
@@ -47,7 +47,7 @@ CREATE TABLE BankQuestions (
 
 CREATE TABLE Questions (
     QuestionID INT PRIMARY KEY IDENTITY(1,1),
-	BankID INT REFERENCES BankQuestions(BankID),
+	BankID INT REFERENCES BankQuestion(BankID),
 	Question NVARCHAR(MAX)
 )
 

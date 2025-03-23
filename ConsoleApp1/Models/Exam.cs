@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DrivingSkillCert.Models;
+namespace ConsoleApp1.Models;
 
 public partial class Exam
 {

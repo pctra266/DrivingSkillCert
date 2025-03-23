@@ -13,8 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DrivingSkillCert.DAO;
-using DrivingSkillCert.Models;
 using Microsoft.EntityFrameworkCore;
+using ConsoleApp1.Models;
+
 
 namespace DrivingSkillCert
 {
@@ -180,6 +181,10 @@ namespace DrivingSkillCert
                 mainWindow.Show();
                 Window.GetWindow(this).Close();
             }
+        }
+        private void btnGoToBankQuestions_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new ManageBankQuestion());
         }
     }
 }

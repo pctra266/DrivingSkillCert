@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using DrivingSkillCert.Models;
+using ConsoleApp1.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace DrivingSkillCert.DAO

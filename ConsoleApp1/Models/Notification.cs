@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace templateWrong.Models;
+namespace ConsoleApp1.Models;
 
 public partial class Notification
 {

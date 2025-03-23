@@ -56,7 +56,7 @@
             </StackPanel>
 
             <!-- Main Content (Frame để load trang) -->
-            <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Grid.Column="1"/>
+            <Frame x:Name="MainFrame" NavigationUIVisibility="Visible" Grid.Column="1"/>
         </Grid>
 
     </Grid>

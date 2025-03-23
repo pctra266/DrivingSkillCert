@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DrivingSkillCert.Models;
+using ConsoleApp1.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace DrivingSkillCert.DAO

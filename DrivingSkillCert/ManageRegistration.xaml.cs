@@ -1,5 +1,5 @@
 ﻿using DrivingSkillCert.DAO;
-using DrivingSkillCert.Models;
+using ConsoleApp1.Models;
 using System;
 using System.Windows;
 using System.Windows.Controls;

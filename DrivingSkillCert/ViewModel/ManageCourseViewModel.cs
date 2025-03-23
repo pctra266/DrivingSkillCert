@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using DrivingSkillCert.DAO;
-using DrivingSkillCert.Models;
+using ConsoleApp1.Models;
 using DrivingSkillCert.Commands;
 
 namespace DrivingSkillCert.ViewModel
