@@ -21,7 +21,7 @@ CREATE TABLE Users (
     FullName NVARCHAR(100) NOT NULL,
     Email NVARCHAR(100) NOT NULL UNIQUE,
     Password NVARCHAR(255) NOT NULL,
-    Role NVARCHAR(20) CHECK (Role IN ('Student', 'Teacher', 'TrafficPolice')) NOT NULL,
+    Role NVARCHAR(20) CHECK (Role IN ('Student', 'Teacher', 'TrafficPolice', 'Admin')) NOT NULL,
     Class NVARCHAR(50) NULL,
     School NVARCHAR(100) NULL,
     Phone NVARCHAR(15) NULL,
@@ -38,6 +38,25 @@ CREATE TABLE Courses (
 	IsDelete bit default 0
 
 );
+
+CREATE TABLE BankQuestions (
+    BankID INT PRIMARY KEY IDENTITY(1,1),
+	CourseID INT REFERENCES Courses(CourseID),
+	BankName NVARCHAR(100),
+);
+
+CREATE TABLE Questions (
+    QuestionID INT PRIMARY KEY IDENTITY(1,1),
+	BankID INT REFERENCES BankQuestions(BankID),
+	Question NVARCHAR(MAX)
+)
+
+CREATE TABLE Answers (
+    AnswerID INT PRIMARY KEY IDENTITY(1,1),
+	QuestionID INT REFERENCES Questions(QuestionID),
+	Answer NVARCHAR(MAX),
+	IsTrue BIT
+)
 
 CREATE TABLE Registrations (
     RegistrationID INT PRIMARY KEY IDENTITY(1,1),
@@ -99,6 +118,7 @@ INSERT INTO Users (FullName, Email, Password, Role, Class, School, Phone) VALUES
 (N'Trần Thị B', 'b@student.com', 'hashedpassword2', N'Student', '10A2', N'Trường THPT A', '0987654322'),
 (N'Phạm Văn C', 'c@teacher.com', 'hashedpassword3', N'Teacher', NULL, N'Trường THPT A', '0987654323'),
 (N'Lê Thị D', 'd@teacher.com', 'hashedpassword4', N'Teacher', NULL, N'Trường THPT B', '0987654324'),
+(N'Admin', 'admin', 'admin', N'Admin', NULL, NULL , NULL),
 (N'Hoàng Văn E', 'e@police.com', 'hashedpassword5', N'TrafficPolice', NULL, NULL, '0987654325');
 
 -- Insert Courses
