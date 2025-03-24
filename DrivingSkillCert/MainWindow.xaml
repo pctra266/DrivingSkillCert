@@ -58,6 +58,7 @@
                 <Button x:Name="btnGoToStudentExam" Content="Go to my exam" Width="150" Height="40" Margin="10" Click="btnGoToStudentExam_Click"  />
                 <Button x:Name="btnGotoRegisStudent" Content="Registration Course" Width="150" Height="40" Margin="10" Click="btnGotoRegisStudent_Click"  />
                 <Button x:Name="btnGotoStudentCourse" Content="Course was registered" Width="150" Height="40" Margin="10" Click="btnGotoStudentCourse_Click" />
+                <Button x:Name="btnGotoTeacherCourse" Content="Go to my responsible course" Width="150" Height="40" Margin="10" Click="btnGotoTeacherCourse_Click" />
             </StackPanel>
 
             <!-- Main Content (Frame để load trang) -->
