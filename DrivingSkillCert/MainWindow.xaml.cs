@@ -9,7 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DrivingSkillCert.DAO;
-using ConsoleApp1.Models;
+using Model.Models;
 
 namespace DrivingSkillCert
 {
@@ -24,7 +24,7 @@ namespace DrivingSkillCert
             if (Application.Current.Properties.Contains("LoggedInUser"))
             {
                 User currentUser =
-               (ConsoleApp1.Models.User)Application.Current.Properties["LoggedInUser"];
+               (Model.Models.User)Application.Current.Properties["LoggedInUser"];
                 SetButtonVisibilityByRole(currentUser.Role);
             }
 

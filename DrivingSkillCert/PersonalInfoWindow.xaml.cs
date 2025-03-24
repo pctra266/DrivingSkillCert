@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using DrivingSkillCert.DAO;
-using ConsoleApp1.Models;
+using Model.Models;
 
 namespace DrivingSkillCert
 {
@@ -31,7 +31,7 @@ namespace DrivingSkillCert
             txtSchool.Text = currentUser.School;
         }
         User currentUser =
-              (ConsoleApp1.Models.User)Application.Current.Properties["LoggedInUser"];
+              (Model.Models.User)Application.Current.Properties["LoggedInUser"];
         private void btnback_Click(object sender, RoutedEventArgs e)
         {
 

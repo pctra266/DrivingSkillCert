@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using ConsoleApp1.Models;
 using DrivingSkillCert.DAO;
-using ConsoleApp1.Models;
+using Model.Models;
 
 namespace DrivingSkillCert
 {

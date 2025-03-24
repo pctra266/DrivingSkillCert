@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DrivingSkillCert.DAO;
 using Microsoft.EntityFrameworkCore;
-using ConsoleApp1.Models;
+using Model.Models;
 
 
 namespace DrivingSkillCert

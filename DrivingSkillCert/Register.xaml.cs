@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using DrivingSkillCert.DAO;
-using ConsoleApp1.Models;
+using Model.Models;
 
 namespace DrivingSkillCert
 {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace ConsoleApp1.Models;
+namespace Model.Models;
 
 public partial class DrivingSkillCertContext : DbContext
 {
@@ -43,7 +43,7 @@ public partial class DrivingSkillCertContext : DbContext
     {
         modelBuilder.Entity<Answer>(entity =>
         {
-            entity.HasKey(e => e.AnswerId).HasName("PK__Answers__D4825024325D3A3D");
+            entity.HasKey(e => e.AnswerId).HasName("PK__Answers__D482502480EAFB8A");
 
             entity.Property(e => e.AnswerId).HasColumnName("AnswerID");
             entity.Property(e => e.Answer1).HasColumnName("Answer");
@@ -56,7 +56,9 @@ public partial class DrivingSkillCertContext : DbContext
 
         modelBuilder.Entity<BankQuestion>(entity =>
         {
-            entity.HasKey(e => e.BankId).HasName("PK__BankQues__AA08CB3339B43527");
+            entity.HasKey(e => e.BankId).HasName("PK__BankQues__AA08CB33C434B5B3");
+
+            entity.ToTable("BankQuestion");
 
             entity.Property(e => e.BankId).HasColumnName("BankID");
             entity.Property(e => e.BankName).HasMaxLength(100);
@@ -69,9 +71,9 @@ public partial class DrivingSkillCertContext : DbContext
 
         modelBuilder.Entity<Certificate>(entity =>
         {
-            entity.HasKey(e => e.CertificateId).HasName("PK__Certific__BBF8A7E1A82D4877");
+            entity.HasKey(e => e.CertificateId).HasName("PK__Certific__BBF8A7E15F48E35E");
 
-            entity.HasIndex(e => e.CertificateCode, "UQ__Certific__9B85583084D76606").IsUnique();
+            entity.HasIndex(e => e.CertificateCode, "UQ__Certific__9B855830A0CCEFA3").IsUnique();
 
             entity.Property(e => e.CertificateId).HasColumnName("CertificateID");
             entity.Property(e => e.CertificateCode).HasMaxLength(50);
@@ -81,12 +83,12 @@ public partial class DrivingSkillCertContext : DbContext
             entity.HasOne(d => d.User).WithMany(p => p.Certificates)
                 .HasForeignKey(d => d.UserId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Certifica__UserI__59063A47");
+                .HasConstraintName("FK__Certifica__UserI__59FA5E80");
         });
 
         modelBuilder.Entity<Course>(entity =>
         {
-            entity.HasKey(e => e.CourseId).HasName("PK__Courses__C92D7187C8A197BC");
+            entity.HasKey(e => e.CourseId).HasName("PK__Courses__C92D7187B5B669DC");
 
             entity.Property(e => e.CourseId).HasColumnName("CourseID");
             entity.Property(e => e.CourseName).HasMaxLength(100);
@@ -101,22 +103,23 @@ public partial class DrivingSkillCertContext : DbContext
 
         modelBuilder.Entity<Exam>(entity =>
         {
-            entity.HasKey(e => e.ExamId).HasName("PK__Exams__297521A7C8FE0ED5");
+            entity.HasKey(e => e.ExamId).HasName("PK__Exams__297521A7E8478282");
 
             entity.Property(e => e.ExamId).HasColumnName("ExamID");
             entity.Property(e => e.CourseId).HasColumnName("CourseID");
             entity.Property(e => e.IsDelete).HasDefaultValue(false);
             entity.Property(e => e.Room).HasMaxLength(50);
+            entity.Property(e => e.Type).HasMaxLength(10);
 
             entity.HasOne(d => d.Course).WithMany(p => p.Exams)
                 .HasForeignKey(d => d.CourseId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Exams__CourseID__4F7CD00D");
+                .HasConstraintName("FK__Exams__CourseID__5070F446");
         });
 
         modelBuilder.Entity<Notification>(entity =>
         {
-            entity.HasKey(e => e.NotificationId).HasName("PK__Notifica__20CF2E326FCF6713");
+            entity.HasKey(e => e.NotificationId).HasName("PK__Notifica__20CF2E322CCF7823");
 
             entity.Property(e => e.NotificationId).HasColumnName("NotificationID");
             entity.Property(e => e.IsDelete).HasDefaultValue(false);
@@ -129,12 +132,12 @@ public partial class DrivingSkillCertContext : DbContext
             entity.HasOne(d => d.User).WithMany(p => p.Notifications)
                 .HasForeignKey(d => d.UserId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Notificat__UserI__5EBF139D");
+                .HasConstraintName("FK__Notificat__UserI__5FB337D6");
         });
 
         modelBuilder.Entity<Question>(entity =>
         {
-            entity.HasKey(e => e.QuestionId).HasName("PK__Question__0DC06F8CC2DD0524");
+            entity.HasKey(e => e.QuestionId).HasName("PK__Question__0DC06F8CF3B741C6");
 
             entity.Property(e => e.QuestionId).HasColumnName("QuestionID");
             entity.Property(e => e.BankId).HasColumnName("BankID");
@@ -147,7 +150,7 @@ public partial class DrivingSkillCertContext : DbContext
 
         modelBuilder.Entity<Registration>(entity =>
         {
-            entity.HasKey(e => e.RegistrationId).HasName("PK__Registra__6EF588309FC9D9E2");
+            entity.HasKey(e => e.RegistrationId).HasName("PK__Registra__6EF588301B538C88");
 
             entity.Property(e => e.RegistrationId).HasColumnName("RegistrationID");
             entity.Property(e => e.CourseId).HasColumnName("CourseID");
@@ -170,7 +173,7 @@ public partial class DrivingSkillCertContext : DbContext
 
         modelBuilder.Entity<Result>(entity =>
         {
-            entity.HasKey(e => e.ResultId).HasName("PK__Results__976902280C8A1C19");
+            entity.HasKey(e => e.ResultId).HasName("PK__Results__97690228CDC0F4FC");
 
             entity.Property(e => e.ResultId).HasColumnName("ResultID");
             entity.Property(e => e.ExamId).HasColumnName("ExamID");
@@ -181,19 +184,19 @@ public partial class DrivingSkillCertContext : DbContext
             entity.HasOne(d => d.Exam).WithMany(p => p.Results)
                 .HasForeignKey(d => d.ExamId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Results__ExamID__534D60F1");
+                .HasConstraintName("FK__Results__ExamID__5441852A");
 
             entity.HasOne(d => d.User).WithMany(p => p.Results)
                 .HasForeignKey(d => d.UserId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Results__UserID__5441852A");
+                .HasConstraintName("FK__Results__UserID__5535A963");
         });
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.UserId).HasName("PK__Users__1788CCACAC673BC3");
+            entity.HasKey(e => e.UserId).HasName("PK__Users__1788CCAC38B0D314");
 
-            entity.HasIndex(e => e.Email, "UQ__Users__A9D105349A03FAE7").IsUnique();
+            entity.HasIndex(e => e.Email, "UQ__Users__A9D1053468E518EE").IsUnique();
 
             entity.Property(e => e.UserId).HasColumnName("UserID");
             entity.Property(e => e.Class).HasMaxLength(50);

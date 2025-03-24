@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ConsoleApp1.Models;
+using Model.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace DrivingSkillCert.DAO
@@ -79,7 +79,7 @@ namespace DrivingSkillCert.DAO
             }
         }
         // hàm để đăng nhập 
-        public ConsoleApp1.Models.User getAccountByEmailAndPassword(string email, string password)
+        public Model.Models.User getAccountByEmailAndPassword(string email, string password)
         {
             DrivingSkillCertContext context = new DrivingSkillCertContext();
             return context.Users.FirstOrDefault(u => u.Email.Equals(email) && u.Password.Equals(password));
@@ -124,7 +124,7 @@ namespace DrivingSkillCert.DAO
             return false;
         }
         // hàm cập nhật profile
-        public static bool updateProfile(ConsoleApp1.Models.User user)
+        public static bool updateProfile(Model.Models.User user)
         {
             DrivingSkillCertContext context = new DrivingSkillCertContext();
             if (user == null || user.UserId <= 0)

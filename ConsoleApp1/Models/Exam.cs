@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ConsoleApp1.Models;
+namespace Model.Models;
 
 public partial class Exam
 {
@@ -12,6 +12,8 @@ public partial class Exam
     public DateTime Date { get; set; }
 
     public string Room { get; set; } = null!;
+
+    public string? Type { get; set; }
 
     public bool? IsDelete { get; set; }
 

@@ -1,5 +1,5 @@
 ﻿using DrivingSkillCert.DAO;
-using ConsoleApp1.Models;
+using Model.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;

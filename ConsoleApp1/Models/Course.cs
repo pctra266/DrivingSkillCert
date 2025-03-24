@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ConsoleApp1.Models;
+namespace Model.Models;
 
 public partial class Course
 {
@@ -24,17 +24,4 @@ public partial class Course
     public virtual ICollection<Registration> Registrations { get; set; } = new List<Registration>();
 
     public virtual User Teacher { get; set; } = null!;
-
-    public override string ToString()
-    {
-        return $"Course ID: {CourseId}, " +
-               $"Name: {CourseName}, " +
-               $"Teacher: {Teacher?.ToString() ?? TeacherId.ToString()}, " +
-               $"Start Date: {StartDate:yyyy-MM-dd}, " +
-               $"End Date: {EndDate:yyyy-MM-dd}, " +
-               $"Is Deleted: {IsDelete ?? false}, " +
-               $"Bank Questions Count: {BankQuestions.Count}, " +
-               $"Exams Count: {Exams.Count}, " +
-               $"Registrations Count: {Registrations.Count}";
-    }
 }
