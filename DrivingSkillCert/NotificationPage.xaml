@@ -11,10 +11,14 @@
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Thông báo của bạn" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
-        <DataGrid x:Name="NotificationsDataGrid" Grid.Row="1"
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10">
+            <Button x:Name="btnBack" Content="Back" Click="btnBack_Click" Margin="0,0,10,0" Padding="10,5"></Button>
+        </StackPanel>
+        <TextBlock Grid.Row="1" Text="Thông báo của bạn" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+        <DataGrid x:Name="NotificationsDataGrid" Grid.Row="2"
                   AutoGenerateColumns="False" CanUserAddRows="False" SelectionChanged="NotificationsDataGrid_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Nội dung" Binding="{Binding Message}" Width="*"/>
