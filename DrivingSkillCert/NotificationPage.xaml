@@ -18,7 +18,7 @@
                   AutoGenerateColumns="False" CanUserAddRows="False" SelectionChanged="NotificationsDataGrid_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Nội dung" Binding="{Binding Message}" Width="*"/>
-                <DataGridTextColumn Header="Ngày" Binding="{Binding SentDate, StringFormat=\{0:dd/MM/yyyy HH:mm\}}" Width="*"/>
+                <DataGridTextColumn Header="Ngày" Binding="{Binding SentDate, StringFormat=\{0:dd/MM/yyyy HH:mm\}}" Width="Auto"/>
                 <DataGridCheckBoxColumn Header="Đã đọc" Binding="{Binding IsRead}" Width="Auto"/>
             </DataGrid.Columns>
         </DataGrid>

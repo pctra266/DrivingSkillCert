@@ -1,0 +1,36 @@
+﻿<Page x:Class="DrivingSkillCert.CertificateServiceForTeacher"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DrivingSkillCert"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CertificateServiceForTeacher">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Tiêu đề -->
+        <TextBlock Text="Danh sách đăng ký đủ điều kiện cấp chứng chỉ" 
+               FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+
+        <!-- DataGrid hiển thị danh sách đăng ký (đã Approved) -->
+        <DataGrid x:Name="RegistrationsDataGrid" Grid.Row="1" AutoGenerateColumns="False" CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding RegistrationId}" Width="*"/>
+                <DataGridTextColumn Header="Học viên" Binding="{Binding StudentName}" Width="*"/>
+                <DataGridTextColumn Header="Khóa học" Binding="{Binding CourseName}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Nút gửi yêu cầu -->
+        <Button x:Name="btnSendRequest" Grid.Row="2" Content="Gửi yêu cầu cấp chứng chỉ" 
+            Width="220" Height="30" HorizontalAlignment="Right" Margin="0,10,0,0"
+            Click="btnSendRequest_Click"/>
+    </Grid>
+</Page>

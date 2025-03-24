@@ -60,6 +60,8 @@
                 <Button x:Name="btnGotoStudentCourse" Content="Course was registered" Width="150" Height="40" Margin="10" Click="btnGotoStudentCourse_Click" />
                 <Button x:Name="btnGotoTeacherCourse" Content="Go to my responsible course" Width="150" Height="40" Margin="10" Click="btnGotoTeacherCourse_Click" />
                 <Button x:Name="btnGotoNotification" Content="Notification" Width="150" Height="40" Margin="10" Click="btnGotoNotification_Click" />
+                <Button x:Name="btnGotoRequest" Content="Request Certificate" Width="150" Height="40" Margin="10" Click="btnGotoRequest_Click" />
+                <Button x:Name="btnGotoApproveRequest" Content="List Request Certificate" Width="150" Height="40" Margin="10" Click="btnGotoApproveRequest_Click" />
             </StackPanel>
 
             <!-- Main Content (Frame để load trang) -->
