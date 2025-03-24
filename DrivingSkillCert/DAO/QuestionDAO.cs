@@ -48,5 +48,14 @@ namespace DrivingSkillCert.DAO
                 context.SaveChanges();
             }
         }
+        public List<Question> GetQuestionsByCourseId(int courseId)
+        {
+            using var context = new DrivingSkillCertContext();
+
+            return context.Questions
+                .Where(q => q.Bank.CourseId == courseId)
+                .Include(q => q.Bank)
+                .ToList();
+        }
     }
 }

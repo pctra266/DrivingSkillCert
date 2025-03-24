@@ -19,6 +19,7 @@ namespace DrivingSkillCert.DAO
             {
                 return context.Exams
                     .Include(e => e.Course.Teacher)
+                    .Where(e=>e.IsDelete==false)
                     .ToList();
             }
             catch (Exception ex)
@@ -97,7 +98,7 @@ namespace DrivingSkillCert.DAO
 
             try
             {
-                return context.Exams.Where(e => e.Course.Registrations.Any(r => r.UserId == studentId && r.IsDelete == false && "Approved".Equals(r.Status)) && e.IsDelete == false)
+                return context.Exams.Where(e => e.Course.Registrations.Any(r => r.UserId == studentId && r.IsDelete != true && "Approved".Equals(r.Status)) && e.IsDelete == false)
                                     .Include(e => e.Course)
                                     .ToList();
             }

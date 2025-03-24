@@ -54,7 +54,7 @@
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                                <CheckBox IsChecked="{Binding IsTrue}" Margin="0,0,10,0"/>
+                                <RadioButton GroupName="Answer" IsChecked="{Binding IsTrue}" Margin="0,0,10,0"/>
                                 <TextBox Text="{Binding Answer1}" Width="300"/>
                                 <Button Content="Remove" Click="btnRemoveAnswer_Click" Margin="10,0,0,0"/>
                             </StackPanel>
