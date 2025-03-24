@@ -86,6 +86,23 @@ namespace DrivingSkillCert.DAO
             }
             catch (Exception ex)
             {
+                throw new Exception("Error find exams", ex);
+
+            }
+        }
+
+        public List<Exam> GetExamsOfStudent(int studentId)
+        {
+            using var context = new DrivingSkillCertContext();
+
+            try
+            {
+                return context.Exams.Where(e => e.Course.Registrations.Any(r => r.UserId == studentId && r.IsDelete == false && "Approved".Equals(r.Status)) && e.IsDelete == false)
+                                    .Include(e => e.Course)
+                                    .ToList();
+            }
+            catch (Exception ex)
+            {
                 throw new Exception("Error update exams", ex);
 
             }

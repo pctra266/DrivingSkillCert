@@ -163,6 +163,7 @@ namespace DrivingSkillCert
             this.Close();
         }
 
+
         private void btnGoToViewCertificate_Click(object sender, RoutedEventArgs e)
         {
             UserControl  userControl = new UserControl();
@@ -175,6 +176,19 @@ namespace DrivingSkillCert
             ScoringPractical scoringPractical = new ScoringPractical();
             scoringPractical.Show();
             this.Close();
+        }
+
+        private void btnGoToStudentExam_Click(object sender, RoutedEventArgs e)
+        {
+            btnGoToCourse.Visibility = Visibility.Collapsed;
+            btnGoToExam.Visibility = Visibility.Collapsed;
+            btnGoToUser.Visibility = Visibility.Collapsed;
+            btnGoToCertificate.Visibility = Visibility.Collapsed;
+            btnGoToResult.Visibility = Visibility.Collapsed;
+            btnGoToRegistration.Visibility = Visibility.Collapsed;
+
+            MainFrame.Navigate(new ExamStudent());
+
         }
     }
 }
