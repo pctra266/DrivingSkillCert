@@ -74,6 +74,7 @@ CREATE TABLE Exams (
     CourseID INT NOT NULL,
     Date DATE NOT NULL,
     Room NVARCHAR(50) NOT NULL,
+	Type NVARCHAR(20) check (Type in ('Theory','Practice')),
     FOREIGN KEY (CourseID) REFERENCES Courses(CourseID),
 	IsDelete bit default 0
 );
@@ -132,9 +133,9 @@ INSERT INTO Registrations (UserID, CourseID, Status, Comments) VALUES
 (2, 2, N'Pending', NULL);
 
 -- Insert Exams
-INSERT INTO Exams (CourseID, Date, Room) VALUES
-(1, '2025-06-15', N'Phòng 101'),
-(2, '2025-07-15', N'Phòng 102');
+INSERT INTO Exams (CourseID, Date, Room, Type) VALUES
+(1, '2025-06-15', N'Phòng 101','Theory'),
+(2, '2025-07-15', N'Phòng 102','Theory');
 
 -- Insert Results
 INSERT INTO Results (ExamID, UserID, Score, PassStatus) VALUES
@@ -174,11 +175,11 @@ INSERT INTO Registrations (UserID, CourseID, Status, Comments) VALUES
 (6, 5, 'Approved', N'Học viên đạt yêu cầu.');
 
 -- Insert more Exams
-INSERT INTO Exams (CourseID, Date, Room) VALUES
-(1, '2025-09-15', N'Phòng 201'),
-(2, '2025-10-20', N'Phòng 202'),
-(3, '2025-11-25', N'Phòng 203'),
-(4, '2025-12-05', N'Phòng 204');
+INSERT INTO Exams (CourseID, Date, Room, Type) VALUES
+(1, '2025-09-15', N'Phòng 201','Theory'),
+(2, '2025-10-20', N'Phòng 202','Theory'),
+(3, '2025-11-25', N'Phòng 203','Theory'),
+(4, '2025-12-05', N'Phòng 204','Theory');
 
 -- Insert more Results
 INSERT INTO Results (ExamID, UserID, Score, PassStatus) VALUES

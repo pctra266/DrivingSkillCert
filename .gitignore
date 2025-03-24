@@ -67,3 +67,4 @@ coverage/
 
 # Ignore generated code files
 GeneratedCode/
+ConsoleApp1/appsettings.json
