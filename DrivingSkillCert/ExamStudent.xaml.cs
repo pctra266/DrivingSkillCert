@@ -44,7 +44,17 @@ namespace DrivingSkillCert
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService?.GoBack();
+           
+            if (NavigationService != null && NavigationService.CanGoBack)
+            {
+                NavigationService.GoBack();
+            }
+            else
+            {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                Window.GetWindow(this).Close();
+            }
         }
 
         private void btnRefresh_Click(object sender, RoutedEventArgs e)
