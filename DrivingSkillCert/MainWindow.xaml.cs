@@ -57,7 +57,6 @@ namespace DrivingSkillCert
                     btnGoToRegistration.Visibility = Visibility.Visible;
                     btnGoToUser.Visibility = Visibility.Visible;
                     btnGoToCertificate.Visibility = Visibility.Visible;
-                    btnGoToStudentExam.Visibility = Visibility.Visible;
                     
                     break;
                 case "Student":

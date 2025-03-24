@@ -20,7 +20,7 @@
             <Button x:Name="btnBack" Content="Back" Click="btnBack_Click" Margin="0,0,10,0" Padding="10,5"></Button>
         </StackPanel>
         <!-- Tiêu đề -->
-        <TextBlock Grid.Row="1" Text="Danh sách khóa học" 
+        <TextBlock Grid.Row="1" Text="Courses:" 
                    FontSize="16" FontWeight="Bold" 
                    Margin="0,0,0,10"/>
 
@@ -28,22 +28,22 @@
         <DataGrid x:Name="CoursesDataGrid" Grid.Row="2" 
                   AutoGenerateColumns="False" CanUserAddRows="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Mã khóa học" 
+                <DataGridTextColumn Header="ID" 
                                     Binding="{Binding CourseId}" Width="*"/>
-                <DataGridTextColumn Header="Tên khóa học" 
+                <DataGridTextColumn Header="Course Name" 
                                     Binding="{Binding CourseName}" Width="*"/>
-                <DataGridTextColumn Header="Giáo viên" 
+                <DataGridTextColumn Header="Teacher" 
                                     Binding="{Binding TeacherFullName}" Width="*"/>
-                <DataGridTextColumn Header="Ngày bắt đầu" 
+                <DataGridTextColumn Header="Start Date" 
                                     Binding="{Binding StartDate, StringFormat=\{0:dd/MM/yyyy\}}" Width="*"/>
-                <DataGridTextColumn Header="Ngày kết thúc" 
+                <DataGridTextColumn Header="End Date" 
                                     Binding="{Binding EndDate, StringFormat=\{0:dd/MM/yyyy\}}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
 
         <!-- Nút đăng ký -->
         <Button x:Name="btnRegister" 
-                Content="Đăng ký khóa học" 
+                Content="Register Course" 
                 Grid.Row="3" Width="150" Height="30" 
                 HorizontalAlignment="Right" Margin="0,10,0,0" 
                 Click="btnRegister_Click"/>

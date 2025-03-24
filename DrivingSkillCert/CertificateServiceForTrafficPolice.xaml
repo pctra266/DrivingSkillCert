@@ -16,7 +16,7 @@
         </Grid.RowDefinitions>
 
         <!-- Tiêu đề -->
-        <TextBlock Text="Danh sách yêu cầu cấp chứng chỉ" 
+        <TextBlock Text="List of request certificate" 
                FontSize="16" FontWeight="Bold" Margin="0,0,0,10" Grid.Row="0"/>
 
         <!-- DataGrid hiển thị danh sách yêu cầu được tạo từ thông báo của Teacher -->
@@ -24,15 +24,14 @@
               AutoGenerateColumns="False" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Student ID" Binding="{Binding StudentID}" Width="*"/>
-                <DataGridTextColumn Header="Student Name" Binding="{Binding StudentName}" Width="*"/>
-                <DataGridTextColumn Header="Course ID" Binding="{Binding CourseID}" Width="*"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding StudentName}" Width="*"/>
                 <DataGridTextColumn Header="Course Name" Binding="{Binding CourseName}" Width="*"/>
                 <DataGridTextColumn Header="Notification ID" Binding="{Binding NotificationID}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
 
         <!-- Nút cấp chứng chỉ -->
-        <Button x:Name="btnIssueCertificate" Content="Cấp chứng chỉ" 
+        <Button x:Name="btnIssueCertificate" Content="Certificate issuance" 
             Grid.Row="2" Width="150" Height="30" HorizontalAlignment="Right" 
             Margin="0,10,0,0" Click="btnIssueCertificate_Click"/>
     </Grid>

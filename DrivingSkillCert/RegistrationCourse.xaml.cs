@@ -34,7 +34,7 @@ namespace DrivingSkillCert
                            where c.IsDelete == false
                            select new
                            {
-                               c.CourseId,
+                               CourseId = c.CourseId,
                                c.CourseName,
                                // Lấy tên giáo viên từ Navigation Property Teacher
                                TeacherFullName = c.Teacher.FullName,

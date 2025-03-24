@@ -16,20 +16,20 @@
         </Grid.RowDefinitions>
 
         <!-- Tiêu đề -->
-        <TextBlock Text="Danh sách đăng ký đủ điều kiện cấp chứng chỉ" 
+        <TextBlock Text="List of eligible applicants for certification" 
                FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
 
         <!-- DataGrid hiển thị danh sách đăng ký (đã Approved) -->
         <DataGrid x:Name="RegistrationsDataGrid" Grid.Row="1" AutoGenerateColumns="False" CanUserAddRows="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding RegistrationId}" Width="*"/>
-                <DataGridTextColumn Header="Học viên" Binding="{Binding StudentName}" Width="*"/>
-                <DataGridTextColumn Header="Khóa học" Binding="{Binding CourseName}" Width="*"/>
+                <DataGridTextColumn Header="Registration Number" Binding="{Binding RegistrationId}" Width="*"/>
+                <DataGridTextColumn Header="Student" Binding="{Binding StudentName}" Width="*"/>
+                <DataGridTextColumn Header="Course" Binding="{Binding CourseName}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
 
         <!-- Nút gửi yêu cầu -->
-        <Button x:Name="btnSendRequest" Grid.Row="2" Content="Gửi yêu cầu cấp chứng chỉ" 
+        <Button x:Name="btnSendRequest" Grid.Row="2" Content="Submit certificate request" 
             Width="220" Height="30" HorizontalAlignment="Right" Margin="0,10,0,0"
             Click="btnSendRequest_Click"/>
     </Grid>
