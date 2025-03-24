@@ -64,5 +64,19 @@ namespace DrivingSkillCert
 
             RegisteredCoursesDataGrid.ItemsSource = registeredCourses;
         }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            if (NavigationService.CanGoBack)
+            {
+                NavigationService.GoBack();
+            }
+            else
+            {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                Window.GetWindow(this).Close();
+            }
+        }
     }
 }

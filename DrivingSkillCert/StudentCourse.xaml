@@ -11,9 +11,12 @@
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="10">
+            <Button x:Name="btnBack" Content="Back" Click="btnBack_Click" Margin="0,0,10,0" Padding="10,5"></Button>
+        </StackPanel>
         <!-- Tiêu đề danh sách khóa học đã đăng ký -->
         <TextBlock Text="Khóa học đã đăng ký" 
                    FontSize="16" FontWeight="Bold" 
