@@ -61,6 +61,7 @@ namespace DrivingSkillCert.DAO
                 }
             }
         }
+
         public static bool UpdateResult(int resultId, int score, bool passStatus)
         {
             try
@@ -84,6 +85,7 @@ namespace DrivingSkillCert.DAO
             }
             return false;
         }
+
 
 
         public List<Result> GetExamResultOfUser(int userId, Exam exam)
