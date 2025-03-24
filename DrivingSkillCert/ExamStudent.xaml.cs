@@ -23,6 +23,7 @@ namespace DrivingSkillCert
     /// </summary>
     public partial class ExamStudent : Page
     {
+        public bool CameFromTheoryExam { get; set; }
         private readonly ExamDAO _examDAO;
         private readonly RegistrationDAO _registrationDAO;
         private readonly ResultDAO _resultDAO;
@@ -78,7 +79,7 @@ namespace DrivingSkillCert
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            if (NavigationService.CanGoBack)
+            if (NavigationService.CanGoBack && !CameFromTheoryExam)
             {
                 NavigationService.GoBack();
             }

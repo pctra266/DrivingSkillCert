@@ -122,7 +122,7 @@ namespace DrivingSkillCert
                 _resultDAO.AddResult(result);
 
                 MessageBox.Show($"Exam completed!\nScore: {score:F2}/100\nStatus: {(passStatus ? "Pass" : "Fail")}");
-                NavigationService?.Navigate(new ExamStudent());
+                NavigationService?.Navigate(new ExamStudent { CameFromTheoryExam = true });
             }
             catch (Exception ex)
             {
