@@ -172,7 +172,20 @@ INSERT INTO Registrations (UserID, CourseID, Status, Comments) VALUES
 (2, 4, 'Approved', N'Học viên đủ điều kiện.'),
 (6, 1, 'Pending', N'Chờ xét duyệt.'),
 (7, 2, 'Rejected', N'Không đủ điều kiện đăng ký.'),
-(6, 5, 'Approved', N'Học viên đạt yêu cầu.');
+(6, 5, 'Approved', N'Học viên đạt yêu cầu.'),
+(6, 3, 'Pending', N'Chờ xét duyệt'),
+(7, 4, 'Approved', N'Được chấp nhận'),
+(8, 5, 'Rejected', N'Không đủ điều kiện'),
+(9, 6, 'Approved', N'Học viên đạt yêu cầu'),
+(10, 7, 'Pending', NULL),
+(8, 3, 'Approved', N'Đủ điều kiện tham gia.'),
+(9, 4, 'Rejected', N'Không đủ yêu cầu.'),
+(10, 5, 'Approved', N'Học viên xuất sắc.'),
+(6, 6, 'Pending', NULL),
+(7, 7, 'Approved', N'Học viên đủ điều kiện.'),
+(8, 1, 'Rejected', N'Thiếu hồ sơ đăng ký.'),
+(9, 2, 'Approved', N'Được chấp nhận sau khi phỏng vấn.'),
+(10, 3, 'Pending', NULL);
 
 -- Insert more Exams
 INSERT INTO Exams (CourseID, Date, Room, Type) VALUES
@@ -184,7 +197,22 @@ INSERT INTO Exams (CourseID, Date, Room, Type) VALUES
 (2, '2025-07-20', N'Phòng 102', 'Practice'),
 (3, '2025-09-20', N'Phòng 201', 'Practice'),
 (4, '2025-10-25', N'Phòng 202', 'Practice'),
-(5, '2025-11-30', N'Phòng 203', 'Practice');
+(5, '2025-11-30', N'Phòng 203', 'Practice'),
+(3, '2025-08-10', N'Phòng 301', 'Theory'),
+(4, '2025-09-05', N'Phòng 302', 'Practice'),
+(5, '2025-10-10', N'Phòng 303', 'Theory'),
+(6, '2025-11-15', N'Phòng 304', 'Practice'),
+(7, '2025-12-20', N'Phòng 305', 'Theory');
+(1, '2025-06-25', N'Phòng 101', 'Theory'),
+(2, '2025-07-10', N'Phòng 102', 'Practice'),
+(3, '2025-08-15', N'Phòng 201', 'Theory'),
+(4, '2025-09-20', N'Phòng 202', 'Practice'),
+(5, '2025-10-05', N'Phòng 203', 'Theory'),
+(6, '2025-11-10', N'Phòng 204', 'Practice'),
+(7, '2025-12-15', N'Phòng 205', 'Theory'),
+(1, '2025-06-30', N'Phòng 101', 'Practice'),
+(2, '2025-07-15', N'Phòng 102', 'Theory'),
+(3, '2025-08-20', N'Phòng 201', 'Practice');
 
 -- Insert more Results
 INSERT INTO Results (ExamID, UserID, Score, PassStatus) VALUES
@@ -197,7 +225,22 @@ INSERT INTO Results (ExamID, UserID, Score, PassStatus) VALUES
 (6, 2, 78.5, 1),
 (7, 6, 60.0, 0),
 (8, 7, 90.0, 1),
-(9, 1, 88.0, 1);
+(9, 1, 88.0, 1),
+(10, 6, 70.0, 1),
+(11, 7, 50.0, 0),
+(12, 8, 85.0, 1),
+(13, 9, 40.0, 0),
+(14, 10, 95.0, 1),
+(15, 6, 82.0, 1),
+(16, 7, 67.5, 1),
+(17, 8, 45.0, 0),
+(18, 9, 89.0, 1),
+(19, 10, 55.0, 0),
+(20, 6, 92.0, 1),
+(21, 7, 73.5, 1),
+(22, 8, 40.0, 0),
+(23, 9, 77.0, 1),
+(24, 10, 95.0, 1);
 -- Insert more Certificates
 INSERT INTO Certificates (UserID, IssuedDate, ExpirationDate, CertificateCode) VALUES
 (1, '2025-09-20', '2030-09-20', 'CERT987654'),
@@ -247,3 +290,5 @@ BEGIN
 END
 SET @BankID=@BankID+1;
 END
+
+select * from Users
