@@ -26,7 +26,7 @@
                   Margin="10" IsReadOnly="True" SelectionChanged="dgCertificates_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Visibility="Collapsed" Header="ID" Binding="{Binding CertificateId}" Width="50"/>
-                <DataGridTextColumn Header="UserID" Binding="{Binding UserID}" Width="80"/>
+                <DataGridTextColumn Header="UserID" Binding="{Binding UserId}" Width="80"/>
                 <DataGridTextColumn Header="Issued Date" Binding="{Binding IssuedDate}" Width="100"/>
                 <DataGridTextColumn Header="Expiration Date" Binding="{Binding ExpirationDate}" Width="100"/>
                 <DataGridTextColumn Header="Certificate Code" Binding="{Binding CertificateCode}" Width="*"/>
