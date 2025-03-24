@@ -27,6 +27,7 @@
                 <DataGridTextColumn Visibility="Collapsed" Binding="{Binding ExamId}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Course" Binding="{Binding Course.CourseName}" Width="*"></DataGridTextColumn>
                 <DataGridTextColumn Header="Teacher" Binding="{Binding Course.Teacher.FullName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Type" Binding="{Binding Type}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Date" Binding="{Binding Date}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Room" Binding="{Binding Room}"></DataGridTextColumn>
                 <DataGridTemplateColumn Width="100">
@@ -48,6 +49,13 @@
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                     <TextBlock Text="Course:" Width="100"/>
                     <ComboBox x:Name="cmbCourse" Width="200" DisplayMemberPath="CourseName" SelectedValuePath="CourseId"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock Text="Type:" Width="100"/>
+                    <ComboBox Name="cbType" Width="200" >
+                        <ComboBoxItem Tag="Type" Content="Theory" IsSelected="True"></ComboBoxItem>
+                        <ComboBoxItem Tag="Type" Content="Practice" ></ComboBoxItem>
+                    </ComboBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                     <TextBlock Text="Date:" Width="100"/>

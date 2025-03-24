@@ -36,7 +36,9 @@ namespace DrivingSkillCert
 
         private void LoadExams()
         {
-            dgExams.ItemsSource = examDAO.GetExams();
+            var exams = examDAO.GetExams();
+            exams.Reverse();
+            dgExams.ItemsSource = exams;
         }
         private void LoadCourses()
         {
@@ -66,6 +68,7 @@ namespace DrivingSkillCert
             if (dgExams.SelectedItem is Exam selectedExam) {
                 editingExamId = selectedExam.ExamId;
                 cmbCourse.SelectedValue = selectedExam.CourseId;
+                cbType.SelectedValue = selectedExam.Type;
                 dpDate.SelectedDate = selectedExam.Date;
                 txtRoom.Text = selectedExam.Room;
              }
@@ -102,6 +105,8 @@ namespace DrivingSkillCert
             exam.Date = dpDate.SelectedDate.Value;
             exam.Room = txtRoom.Text;
             exam.CourseId = (int)cmbCourse.SelectedValue;
+            exam.Type = cbType.SelectionBoxItem.ToString();
+
             if (editingExamId==null) {
                 examDAO.UpdateExam(exam);
                 LoadExams();

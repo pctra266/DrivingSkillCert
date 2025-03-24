@@ -43,7 +43,7 @@ public partial class DrivingSkillCertContext : DbContext
     {
         modelBuilder.Entity<Answer>(entity =>
         {
-            entity.HasKey(e => e.AnswerId).HasName("PK__Answers__D482502480EAFB8A");
+            entity.HasKey(e => e.AnswerId).HasName("PK__Answers__D4825024B2A534FE");
 
             entity.Property(e => e.AnswerId).HasColumnName("AnswerID");
             entity.Property(e => e.Answer1).HasColumnName("Answer");
@@ -56,7 +56,7 @@ public partial class DrivingSkillCertContext : DbContext
 
         modelBuilder.Entity<BankQuestion>(entity =>
         {
-            entity.HasKey(e => e.BankId).HasName("PK__BankQues__AA08CB33C434B5B3");
+            entity.HasKey(e => e.BankId).HasName("PK__BankQues__AA08CB337A7B34CE");
 
             entity.ToTable("BankQuestion");
 
@@ -71,9 +71,9 @@ public partial class DrivingSkillCertContext : DbContext
 
         modelBuilder.Entity<Certificate>(entity =>
         {
-            entity.HasKey(e => e.CertificateId).HasName("PK__Certific__BBF8A7E15F48E35E");
+            entity.HasKey(e => e.CertificateId).HasName("PK__Certific__BBF8A7E1DB26014F");
 
-            entity.HasIndex(e => e.CertificateCode, "UQ__Certific__9B855830A0CCEFA3").IsUnique();
+            entity.HasIndex(e => e.CertificateCode, "UQ__Certific__9B8558306A31E7FC").IsUnique();
 
             entity.Property(e => e.CertificateId).HasColumnName("CertificateID");
             entity.Property(e => e.CertificateCode).HasMaxLength(50);
@@ -88,7 +88,7 @@ public partial class DrivingSkillCertContext : DbContext
 
         modelBuilder.Entity<Course>(entity =>
         {
-            entity.HasKey(e => e.CourseId).HasName("PK__Courses__C92D7187B5B669DC");
+            entity.HasKey(e => e.CourseId).HasName("PK__Courses__C92D71870EC31B12");
 
             entity.Property(e => e.CourseId).HasColumnName("CourseID");
             entity.Property(e => e.CourseName).HasMaxLength(100);
@@ -103,13 +103,13 @@ public partial class DrivingSkillCertContext : DbContext
 
         modelBuilder.Entity<Exam>(entity =>
         {
-            entity.HasKey(e => e.ExamId).HasName("PK__Exams__297521A7E8478282");
+            entity.HasKey(e => e.ExamId).HasName("PK__Exams__297521A7D95CB11E");
 
             entity.Property(e => e.ExamId).HasColumnName("ExamID");
             entity.Property(e => e.CourseId).HasColumnName("CourseID");
             entity.Property(e => e.IsDelete).HasDefaultValue(false);
             entity.Property(e => e.Room).HasMaxLength(50);
-            entity.Property(e => e.Type).HasMaxLength(10);
+            entity.Property(e => e.Type).HasMaxLength(20);
 
             entity.HasOne(d => d.Course).WithMany(p => p.Exams)
                 .HasForeignKey(d => d.CourseId)
@@ -119,7 +119,7 @@ public partial class DrivingSkillCertContext : DbContext
 
         modelBuilder.Entity<Notification>(entity =>
         {
-            entity.HasKey(e => e.NotificationId).HasName("PK__Notifica__20CF2E322CCF7823");
+            entity.HasKey(e => e.NotificationId).HasName("PK__Notifica__20CF2E32310BE344");
 
             entity.Property(e => e.NotificationId).HasColumnName("NotificationID");
             entity.Property(e => e.IsDelete).HasDefaultValue(false);
@@ -137,7 +137,7 @@ public partial class DrivingSkillCertContext : DbContext
 
         modelBuilder.Entity<Question>(entity =>
         {
-            entity.HasKey(e => e.QuestionId).HasName("PK__Question__0DC06F8CF3B741C6");
+            entity.HasKey(e => e.QuestionId).HasName("PK__Question__0DC06F8C833A18F1");
 
             entity.Property(e => e.QuestionId).HasColumnName("QuestionID");
             entity.Property(e => e.BankId).HasColumnName("BankID");
@@ -150,7 +150,7 @@ public partial class DrivingSkillCertContext : DbContext
 
         modelBuilder.Entity<Registration>(entity =>
         {
-            entity.HasKey(e => e.RegistrationId).HasName("PK__Registra__6EF588301B538C88");
+            entity.HasKey(e => e.RegistrationId).HasName("PK__Registra__6EF58830EF178031");
 
             entity.Property(e => e.RegistrationId).HasColumnName("RegistrationID");
             entity.Property(e => e.CourseId).HasColumnName("CourseID");
@@ -173,7 +173,7 @@ public partial class DrivingSkillCertContext : DbContext
 
         modelBuilder.Entity<Result>(entity =>
         {
-            entity.HasKey(e => e.ResultId).HasName("PK__Results__97690228CDC0F4FC");
+            entity.HasKey(e => e.ResultId).HasName("PK__Results__97690228A4269603");
 
             entity.Property(e => e.ResultId).HasColumnName("ResultID");
             entity.Property(e => e.ExamId).HasColumnName("ExamID");
@@ -194,9 +194,9 @@ public partial class DrivingSkillCertContext : DbContext
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.UserId).HasName("PK__Users__1788CCAC38B0D314");
+            entity.HasKey(e => e.UserId).HasName("PK__Users__1788CCACA3E48CAB");
 
-            entity.HasIndex(e => e.Email, "UQ__Users__A9D1053468E518EE").IsUnique();
+            entity.HasIndex(e => e.Email, "UQ__Users__A9D10534C3A71629").IsUnique();
 
             entity.Property(e => e.UserId).HasColumnName("UserID");
             entity.Property(e => e.Class).HasMaxLength(50);
