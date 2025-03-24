@@ -145,5 +145,11 @@ namespace DrivingSkillCert.DAO
             return false;
         }
 
+        public List<Certificate> getUserCertificate(int userId)
+        {
+            DrivingSkillCertContext context = new DrivingSkillCertContext();
+            return context.Certificates.Where(c => c.UserId == userId).ToList();
+        }
+
     }
 }

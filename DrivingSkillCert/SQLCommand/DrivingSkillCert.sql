@@ -179,7 +179,12 @@ INSERT INTO Exams (CourseID, Date, Room, Type) VALUES
 (1, '2025-09-15', N'Phòng 201','Theory'),
 (2, '2025-10-20', N'Phòng 202','Theory'),
 (3, '2025-11-25', N'Phòng 203','Theory'),
-(4, '2025-12-05', N'Phòng 204','Theory');
+(4, '2025-12-05', N'Phòng 204','Theory'),
+(1, '2025-06-20', N'Phòng 101', 'Practice'),
+(2, '2025-07-20', N'Phòng 102', 'Practice'),
+(3, '2025-09-20', N'Phòng 201', 'Practice'),
+(4, '2025-10-25', N'Phòng 202', 'Practice'),
+(5, '2025-11-30', N'Phòng 203', 'Practice');
 
 -- Insert more Results
 INSERT INTO Results (ExamID, UserID, Score, PassStatus) VALUES
@@ -187,8 +192,12 @@ INSERT INTO Results (ExamID, UserID, Score, PassStatus) VALUES
 (2, 2, 72.5, 1),
 (3, 6, 45.0, 0),
 (4, 7, 91.0, 1),
-(3, 6, 80.0, 1);
-
+(3, 6, 80.0, 1),
+(5, 1, 85.0, 1),
+(6, 2, 78.5, 1),
+(7, 6, 60.0, 0),
+(8, 7, 90.0, 1),
+(9, 1, 88.0, 1);
 -- Insert more Certificates
 INSERT INTO Certificates (UserID, IssuedDate, ExpirationDate, CertificateCode) VALUES
 (1, '2025-09-20', '2030-09-20', 'CERT987654'),

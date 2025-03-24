@@ -61,5 +61,28 @@ namespace DrivingSkillCert.DAO
                 }
             }
         }
+        public static bool UpdateResult(int resultId, int score, bool passStatus)
+        {
+            try
+            {
+                using (var context = new DrivingSkillCertContext())
+                {
+                    var resultToUpdate = context.Results.FirstOrDefault(r => r.ResultId == resultId);
+                    if (resultToUpdate != null)
+                    {
+                        resultToUpdate.Score = score;
+                        resultToUpdate.PassStatus = passStatus;
+
+                        context.SaveChanges();
+                        return true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error updating result: {ex.Message}");
+            }
+            return false;
+        }
     }
 }

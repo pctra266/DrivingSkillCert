@@ -38,7 +38,8 @@ namespace DrivingSkillCert
             btnGoToCertificate.Visibility = Visibility.Collapsed;
             btnGoToResult.Visibility = Visibility.Collapsed;
             btnGoToRegistration.Visibility = Visibility.Collapsed;
-
+            btnGoToViewCertificate.Visibility = Visibility.Collapsed;
+            btnGotoResultTeacherSite.Visibility = Visibility.Collapsed;
             // Hiển thị các nút theo role
             switch (role)
             {
@@ -51,10 +52,10 @@ namespace DrivingSkillCert
                     btnGoToCertificate.Visibility = Visibility.Visible;
                     break;
                 case "Student":
-
+                    btnGoToViewCertificate.Visibility = Visibility.Visible;
                     break;
                 case "Teacher":
-
+                    btnGotoResultTeacherSite.Visibility = Visibility.Visible;
                     break;
                 case "TrafficPolice":
 
@@ -159,6 +160,20 @@ namespace DrivingSkillCert
         {
             Login loginwindow = new Login();
             loginwindow.Show();
+            this.Close();
+        }
+
+        private void btnGoToViewCertificate_Click(object sender, RoutedEventArgs e)
+        {
+            UserControl  userControl = new UserControl();
+            userControl.Show();
+            this.Close();
+        }
+
+        private void btnGotoResultTeacherSite_Click(object sender, RoutedEventArgs e)
+        {
+            ScoringPractical scoringPractical = new ScoringPractical();
+            scoringPractical.Show();
             this.Close();
         }
     }
