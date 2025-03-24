@@ -72,7 +72,7 @@ CREATE TABLE Registrations (
 CREATE TABLE Exams (
     ExamID INT PRIMARY KEY IDENTITY(1,1),
     CourseID INT NOT NULL,
-    Date DATE NOT NULL,
+    Date DATETIME NOT NULL,
     Room NVARCHAR(50) NOT NULL,
 	Type NVARCHAR(20) check (Type in ('Theory','Practice')),
     FOREIGN KEY (CourseID) REFERENCES Courses(CourseID),
@@ -210,3 +210,38 @@ INSERT INTO Notifications (UserID, Message) VALUES
 (2, N'Bạn đã hoàn thành khóa học, kiểm tra kết quả thi.'),
 (6, N'Bạn đã không đạt trong kỳ thi, vui lòng đăng ký thi lại.'),
 (7, N'Xin chúc mừng! Bạn đã vượt qua kỳ thi sát hạch.');
+
+
+
+
+
+-- Thêm ngân hàng câu hỏi cho Course ID 1
+DECLARE @BankID INT;
+INSERT INTO BankQuestion (CourseID, BankName) VALUES (1, N'Ngân hàng câu hỏi khóa học 1');
+INSERT INTO BankQuestion (CourseID, BankName) VALUES (2, N'Ngân hàng câu hỏi khóa học 2');
+SET @BankID = SCOPE_IDENTITY();
+
+
+-- Thêm 25 câu hỏi vào bảng Questions
+DECLARE @QuestionID INT;
+DECLARE @i INT = 1;
+WHILE @BankID<=2
+BEGIN
+WHILE @i <= 25
+BEGIN
+    INSERT INTO Questions (BankID, Question) 
+    VALUES (@BankID, CONCAT(N'Câu hỏi số ', @i, N' cho khóa học 1?'));
+    
+    SET @QuestionID = SCOPE_IDENTITY();
+
+    -- Thêm 2 đáp án cho mỗi câu hỏi
+    INSERT INTO Answers (QuestionID, Answer, IsTrue) 
+    VALUES (@QuestionID, CONCAT(N'Đáp án 1 cho câu ', @i), 0);
+    
+    INSERT INTO Answers (QuestionID, Answer, IsTrue) 
+    VALUES (@QuestionID, CONCAT(N'Đáp án 2 cho câu ', @i), 1);
+
+    SET @i = @i + 1;
+END
+SET @BankID=@BankID+1;
+END

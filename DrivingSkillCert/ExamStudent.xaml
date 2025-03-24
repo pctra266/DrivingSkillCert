@@ -8,6 +8,7 @@
       d:DesignHeight="450"
       d:DesignWidth="800"
       Title="ExamStudent">
+
     <Grid Background="DimGray">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -42,21 +43,34 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Visibility="Collapsed"
                                     Header="Exam ID"
-                                    Binding="{Binding ExamId}"
+                                    Binding="{Binding ExamItem.ExamId}"
                                     Width="50"/>
                 <DataGridTextColumn Header="Course Name"
-                                    Binding="{Binding Course.CourseName}"
+                                    Binding="{Binding ExamItem.Course.CourseName}"
                                     Width="*"/>
                 <DataGridTextColumn Header="Date"
-                                    Binding="{Binding Date}"
+                                    Binding="{Binding ExamItem.Date}"
                                     Width="*"/>
                 <DataGridTextColumn Header="Room"
-                                    Binding="{Binding Room}"
+                                    Binding="{Binding ExamItem.Room}"
                                     Width="*"/>
                 <DataGridTextColumn Header="Type"
-                                    Binding="{Binding Type}"
+                                    Binding="{Binding ExamItem.Type}"
                                     Width="*"/>
-
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Button x:Name="btnDoExam"
+                                        Content="Do the exam"
+                                        Margin="0,0,5,0"
+                                        Visibility="{Binding IsTheory}"
+                                        IsEnabled="{Binding IsValid}"
+                                        Click="btnDoExam_Click"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
