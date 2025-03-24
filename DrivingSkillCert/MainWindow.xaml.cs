@@ -161,5 +161,17 @@ namespace DrivingSkillCert
             loginwindow.Show();
             this.Close();
         }
+
+        private void btnGoToStudentExam_Click(object sender, RoutedEventArgs e)
+        {
+            btnGoToCourse.Visibility = Visibility.Collapsed;
+            btnGoToExam.Visibility = Visibility.Collapsed;
+            btnGoToUser.Visibility = Visibility.Collapsed;
+            btnGoToCertificate.Visibility = Visibility.Collapsed;
+            btnGoToResult.Visibility = Visibility.Collapsed;
+            btnGoToRegistration.Visibility = Visibility.Collapsed;
+
+            MainFrame.Navigate(new ExamStudent());
+        }
     }
 }

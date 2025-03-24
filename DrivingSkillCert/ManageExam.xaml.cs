@@ -53,7 +53,7 @@ namespace DrivingSkillCert
         {
             detailPanel.Visibility = Visibility.Visible;
                 cmbCourse.SelectedValue = -1;
-                dpDate.SelectedDate =  DateTime.Now;
+                dpDate.Value =  DateTime.Now;
                 txtRoom.Text = "";
         }
 
@@ -68,8 +68,8 @@ namespace DrivingSkillCert
             if (dgExams.SelectedItem is Exam selectedExam) {
                 editingExamId = selectedExam.ExamId;
                 cmbCourse.SelectedValue = selectedExam.CourseId;
-                cbType.SelectedValue = selectedExam.Type;
-                dpDate.SelectedDate = selectedExam.Date;
+                cbType.SelectedIndex = selectedExam.Type.Equals("Theory")?0:1;
+                dpDate.Value = selectedExam.Date;
                 txtRoom.Text = selectedExam.Room;
              }
         }
@@ -98,11 +98,11 @@ namespace DrivingSkillCert
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             Exam exam = new Exam();
-            if (dpDate.SelectedDate == null || txtRoom.Text.Count()<1) {
+            if (dpDate.Value==null || txtRoom.Text.Count()<1 || cbType.SelectionBoxItem.ToString().Count()<1) {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            exam.Date = dpDate.SelectedDate.Value;
+            exam.Date = dpDate.Value.Value;
             exam.Room = txtRoom.Text;
             exam.CourseId = (int)cmbCourse.SelectedValue;
             exam.Type = cbType.SelectionBoxItem.ToString();

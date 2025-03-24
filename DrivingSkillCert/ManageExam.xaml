@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DrivingSkillCert"
+      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ManageExam">
@@ -59,7 +60,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                     <TextBlock Text="Date:" Width="100"/>
-                    <DatePicker x:Name="dpDate" Width="200"/>
+                    <xctk:DateTimePicker x:Name="dpDate" Width="200" Format="Custom" FormatString="dd-MM-yyyy HH:mm" TimeFormat="ShortTime"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                     <TextBlock Text="Room:" Width="100"/>
