@@ -44,6 +44,8 @@ namespace DrivingSkillCert
             btnGotoRegisStudent.Visibility = Visibility.Collapsed;
             btnGotoStudentCourse.Visibility = Visibility.Collapsed;
             btnGotoTeacherCourse.Visibility = Visibility.Collapsed;
+            btnGotoRequest.Visibility = Visibility.Collapsed;
+            btnGotoApproveRequest.Visibility = Visibility.Collapsed;
             // Hiển thị các nút theo role
             btnGotoNotification.Visibility = Visibility.Visible; // thông báo luôn hiển thị
             switch (role)
@@ -67,9 +69,10 @@ namespace DrivingSkillCert
                 case "Teacher":
                     btnGotoResultTeacherSite.Visibility = Visibility.Visible;
                     btnGotoTeacherCourse.Visibility = Visibility.Visible;
+                    btnGotoRequest.Visibility = Visibility.Visible;
                     break;
                 case "TrafficPolice":
-
+                    btnGotoApproveRequest.Visibility = Visibility.Visible;
                     break;
                 default:
                     MessageBox.Show("Vai trò không hợp lệ");
@@ -238,6 +241,16 @@ namespace DrivingSkillCert
         private void btnGotoNotification_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new NotificationPage());
+        }
+
+        private void btnGotoRequest_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new CertificateServiceForTeacher());
+        }
+
+        private void btnGotoApproveRequest_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new CertificateServiceForTrafficPolice());
         }
     }
 }
