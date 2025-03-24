@@ -45,6 +45,7 @@ namespace DrivingSkillCert
             btnGotoStudentCourse.Visibility = Visibility.Collapsed;
             btnGotoTeacherCourse.Visibility = Visibility.Collapsed;
             // Hiển thị các nút theo role
+            btnGotoNotification.Visibility = Visibility.Visible; // thông báo luôn hiển thị
             switch (role)
             {
                 case "Admin":
@@ -232,6 +233,11 @@ namespace DrivingSkillCert
         private void btnGotoTeacherCourse_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new TeacherRegistrationManagement());
+        }
+
+        private void btnGotoNotification_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new NotificationPage());
         }
     }
 }

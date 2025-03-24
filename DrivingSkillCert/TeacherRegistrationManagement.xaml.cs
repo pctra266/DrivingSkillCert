@@ -74,6 +74,11 @@ namespace DrivingSkillCert
                 {
                     registration.Status = "Approved";
                     _context.SaveChanges();
+                    var course = _context.Courses.FirstOrDefault(c => c.CourseId == registration.CourseId);
+                    string courseName = course?.CourseName ?? "khóa học";
+
+                    SendNotificationToStudent(registration.UserId, courseName, "duyệt em nhé");
+
                     MessageBox.Show("Đã duyệt đăng ký thành công.");
                     LoadRegistrations();
                 }
@@ -94,6 +99,12 @@ namespace DrivingSkillCert
                 {
                     registration.Status = "Rejected";
                     _context.SaveChanges();
+                    var course = _context.Courses.FirstOrDefault(c => c.CourseId == registration.CourseId);
+                    string courseName = course?.CourseName ?? "khóa học";
+
+                    // Gửi thông báo tới học sinh
+                    SendNotificationToStudent(registration.UserId, courseName, "từ chối em nhé");
+
                     MessageBox.Show("Đã từ chối đăng ký thành công.");
                     LoadRegistrations();
                 }
@@ -102,6 +113,21 @@ namespace DrivingSkillCert
             {
                 MessageBox.Show("Vui lòng chọn một đăng ký để từ chối.");
             }
+        }
+        private void SendNotificationToStudent(int studentId, string courseName, string status)
+        {
+            string message = $"Đơn đăng ký khóa học '{courseName}' của bạn đã được {status}.";
+            var notification = new Notification
+            {
+                UserId = studentId,
+                Message = message,
+                SentDate = DateTime.Now,
+                IsRead = false,
+                IsDelete = false
+            };
+
+            _context.Notifications.Add(notification);
+            _context.SaveChanges();
         }
     }
 }
