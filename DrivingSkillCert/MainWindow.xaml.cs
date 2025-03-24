@@ -40,6 +40,7 @@ namespace DrivingSkillCert
             btnGoToRegistration.Visibility = Visibility.Collapsed;
             btnGoToViewCertificate.Visibility = Visibility.Collapsed;
             btnGotoResultTeacherSite.Visibility = Visibility.Collapsed;
+            btnGoToStudentExam.Visibility = Visibility.Collapsed;
             // Hiển thị các nút theo role
             switch (role)
             {
@@ -50,9 +51,11 @@ namespace DrivingSkillCert
                     btnGoToRegistration.Visibility = Visibility.Visible;
                     btnGoToUser.Visibility = Visibility.Visible;
                     btnGoToCertificate.Visibility = Visibility.Visible;
+                    btnGoToStudentExam.Visibility = Visibility.Visible;
                     break;
                 case "Student":
                     btnGoToViewCertificate.Visibility = Visibility.Visible;
+                    btnGoToStudentExam.Visibility = Visibility.Visible;
                     break;
                 case "Teacher":
                     btnGotoResultTeacherSite.Visibility = Visibility.Visible;

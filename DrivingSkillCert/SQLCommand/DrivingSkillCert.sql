@@ -214,23 +214,25 @@ INSERT INTO Notifications (UserID, Message) VALUES
 
 
 
-
 -- Thêm ngân hàng câu hỏi cho Course ID 1
-DECLARE @BankID INT;
 INSERT INTO BankQuestion (CourseID, BankName) VALUES (1, N'Ngân hàng câu hỏi khóa học 1');
 INSERT INTO BankQuestion (CourseID, BankName) VALUES (2, N'Ngân hàng câu hỏi khóa học 2');
-SET @BankID = SCOPE_IDENTITY();
+INSERT INTO BankQuestion (CourseID, BankName) VALUES (3, N'Ngân hàng câu hỏi khóa học 3');
+INSERT INTO BankQuestion (CourseID, BankName) VALUES (4, N'Ngân hàng câu hỏi khóa học 4');
+INSERT INTO BankQuestion (CourseID, BankName) VALUES (5, N'Ngân hàng câu hỏi khóa học 5');
+INSERT INTO BankQuestion (CourseID, BankName) VALUES (6, N'Ngân hàng câu hỏi khóa học 6');
 
 
 -- Thêm 25 câu hỏi vào bảng Questions
+DECLARE @BankID INT = 1;
 DECLARE @QuestionID INT;
 DECLARE @i INT = 1;
-WHILE @BankID<=2
+WHILE @BankID<=6
 BEGIN
 WHILE @i <= 25
 BEGIN
     INSERT INTO Questions (BankID, Question) 
-    VALUES (@BankID, CONCAT(N'Câu hỏi số ', @i, N' cho khóa học 1?'));
+    VALUES (@BankID, CONCAT(N'Câu hỏi số ', @i, N' cho khóa học ', @BankID,'?'));
     
     SET @QuestionID = SCOPE_IDENTITY();
 

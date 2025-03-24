@@ -108,7 +108,6 @@ namespace DrivingSkillCert
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            MessageBox.Show($"{dpDate.Value.Value}");
             exam.Date = dpDate.Value.Value;
             exam.Room = txtRoom.Text;
             exam.CourseId = (int)cmbCourse.SelectedValue;
