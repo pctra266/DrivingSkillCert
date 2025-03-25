@@ -121,11 +121,26 @@ INSERT INTO Users (FullName, Email, Password, Role, Class, School, Phone) VALUES
 (N'Lê Thị D', 'd@teacher.com', 'hashedpassword4', N'Teacher', NULL, N'Trường THPT B', '0987654324'),
 (N'Admin', 'admin', 'admin', N'Admin', NULL, NULL , NULL),
 (N'Hoàng Văn E', 'e@police.com', 'hashedpassword5', N'TrafficPolice', NULL, NULL, '0987654325');
+-- Insert more Users (Students, Teachers, TrafficPolice)
+INSERT INTO Users (FullName, Email, Password, Role, Class, School, Phone) VALUES
+(N'Nguyễn Thị F', 'f@student.com', 'hashedpassword6', 'Student', '11A1', N'Trường THPT C', '0987654326'),
+(N'Lê Văn G', 'g@student.com', 'hashedpassword7', 'Student', '12A1', N'Trường THPT D', '0987654327'),
+(N'Phan Thị H', 'h@teacher.com', 'hashedpassword8', 'Teacher', NULL, N'Trường THPT C', '0987654328'),
+(N'Vũ Văn I', 'i@teacher.com', 'hashedpassword9', 'Teacher', NULL, N'Trường THPT D', '0987654329'),
+(N'Trịnh Hoàng J', 'j@police.com', 'hashedpassword10', 'TrafficPolice', NULL, NULL, '0987654330');
 
 -- Insert Courses
 INSERT INTO Courses (CourseName, TeacherID, StartDate, EndDate) VALUES
 (N'Lái xe cơ bản', 3, '2025-03-01', '2025-06-01'),
 (N'Lái xe nâng cao', 4, '2025-04-01', '2025-07-01');
+
+-- Insert more Courses
+INSERT INTO Courses (CourseName, TeacherID, StartDate, EndDate) VALUES
+(N'Lái xe ô tô B2', 3, '2025-05-01', '2025-09-01'),
+(N'Lái xe tải hạng C', 4, '2025-06-01', '2025-10-01'),
+(N'Lái xe mô tô A1', 9, '2025-07-01', '2025-11-01'),
+(N'Lái xe mô tô A2', 10, '2025-08-01', '2025-12-01');
+
 
 -- Insert Registrations
 INSERT INTO Registrations (UserID, CourseID, Status, Comments) VALUES
@@ -151,20 +166,6 @@ INSERT INTO Notifications (UserID, Message) VALUES
 (1, N'Bạn đã đậu kỳ thi và nhận chứng chỉ.'),
 (2, N'Kết quả thi đã có, vui lòng kiểm tra.');
 
--- Insert more Users (Students, Teachers, TrafficPolice)
-INSERT INTO Users (FullName, Email, Password, Role, Class, School, Phone) VALUES
-(N'Nguyễn Thị F', 'f@student.com', 'hashedpassword6', 'Student', '11A1', N'Trường THPT C', '0987654326'),
-(N'Lê Văn G', 'g@student.com', 'hashedpassword7', 'Student', '12A1', N'Trường THPT D', '0987654327'),
-(N'Phan Thị H', 'h@teacher.com', 'hashedpassword8', 'Teacher', NULL, N'Trường THPT C', '0987654328'),
-(N'Vũ Văn I', 'i@teacher.com', 'hashedpassword9', 'Teacher', NULL, N'Trường THPT D', '0987654329'),
-(N'Trịnh Hoàng J', 'j@police.com', 'hashedpassword10', 'TrafficPolice', NULL, NULL, '0987654330');
-
--- Insert more Courses
-INSERT INTO Courses (CourseName, TeacherID, StartDate, EndDate) VALUES
-(N'Lái xe ô tô B2', 3, '2025-05-01', '2025-09-01'),
-(N'Lái xe tải hạng C', 4, '2025-06-01', '2025-10-01'),
-(N'Lái xe mô tô A1', 7, '2025-07-01', '2025-11-01'),
-(N'Lái xe mô tô A2', 8, '2025-08-01', '2025-12-01');
 
 -- Insert more Registrations
 INSERT INTO Registrations (UserID, CourseID, Status, Comments) VALUES
