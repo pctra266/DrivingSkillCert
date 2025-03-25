@@ -177,12 +177,12 @@ INSERT INTO Registrations (UserID, CourseID, Status, Comments) VALUES
 (7, 4, 'Approved', N'Được chấp nhận'),
 (8, 5, 'Rejected', N'Không đủ điều kiện'),
 (9, 6, 'Approved', N'Học viên đạt yêu cầu'),
-(10, 7, 'Pending', NULL),
+(10, 2, 'Pending', NULL),
 (8, 3, 'Approved', N'Đủ điều kiện tham gia.'),
 (9, 4, 'Rejected', N'Không đủ yêu cầu.'),
 (10, 5, 'Approved', N'Học viên xuất sắc.'),
 (6, 6, 'Pending', NULL),
-(7, 7, 'Approved', N'Học viên đủ điều kiện.'),
+(7, 1, 'Approved', N'Học viên đủ điều kiện.'),
 (8, 1, 'Rejected', N'Thiếu hồ sơ đăng ký.'),
 (9, 2, 'Approved', N'Được chấp nhận sau khi phỏng vấn.'),
 (10, 3, 'Pending', NULL);
@@ -202,19 +202,20 @@ INSERT INTO Exams (CourseID, Date, Room, Type) VALUES
 (4, '2025-09-05', N'Phòng 302', 'Practice'),
 (5, '2025-10-10', N'Phòng 303', 'Theory'),
 (6, '2025-11-15', N'Phòng 304', 'Practice'),
-(7, '2025-12-20', N'Phòng 305', 'Theory');
+(1, '2025-12-20', N'Phòng 305', 'Theory'),
 (1, '2025-06-25', N'Phòng 101', 'Theory'),
 (2, '2025-07-10', N'Phòng 102', 'Practice'),
 (3, '2025-08-15', N'Phòng 201', 'Theory'),
 (4, '2025-09-20', N'Phòng 202', 'Practice'),
 (5, '2025-10-05', N'Phòng 203', 'Theory'),
 (6, '2025-11-10', N'Phòng 204', 'Practice'),
-(7, '2025-12-15', N'Phòng 205', 'Theory'),
+(2, '2025-12-15', N'Phòng 205', 'Theory'),
 (1, '2025-06-30', N'Phòng 101', 'Practice'),
 (2, '2025-07-15', N'Phòng 102', 'Theory'),
 (3, '2025-08-20', N'Phòng 201', 'Practice');
 
 -- Insert more Results
+
 INSERT INTO Results (ExamID, UserID, Score, PassStatus) VALUES
 (1, 1, 88.0, 1),
 (2, 2, 72.5, 1),
@@ -290,5 +291,3 @@ BEGIN
 END
 SET @BankID=@BankID+1;
 END
-
-select * from Users
