@@ -16,12 +16,19 @@
         </Grid.RowDefinitions>
 
         <!-- Header and Buttons -->
-        <StackPanel Orientation="Horizontal" Margin="10">
-            <Button x:Name="btnBack" Content="Back" Click="btnBack_Click" Margin="0,0,10,0" Padding="10,5"/>
-            <Button x:Name="btnAdd" Content="Add New Course" Click="btnAdd_Click" Margin="0,0,10,0" Padding="10,5"/>
-            <Button x:Name="btnRefresh" Content="Refresh" Click="btnRefresh_Click" Margin="0,0,10,0" Padding="10,5"/>
-            <Button x:Name="btnGoToBankQuestions" Content="Go to Bank Questions" Click="btnGoToBankQuestions_Click" Padding="10,5"/>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <Button x:Name="btnBack" Content="Back" Click="btnBack_Click" Margin="0,0,10,0" Padding="10,5"/>
+                <Button x:Name="btnAdd" Content="Add New Course" Click="btnAdd_Click" Margin="0,0,10,0" Padding="10,5"/>
+                <Button x:Name="btnRefresh" Content="Refresh" Click="btnRefresh_Click" Margin="0,0,10,0" Padding="10,5"/>
+                <Button x:Name="btnGoToBankQuestions" Content="Go to Bank Questions" Click="btnGoToBankQuestions_Click" Padding="10,5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <Label Content="Search:" Foreground="White"></Label>
+                <TextBox x:Name="txtFilter" Height="20" Width="200" TextChanged="txtFilter_TextChanged"></TextBox>
+            </StackPanel>
         </StackPanel>
+        
 
         <!-- Courses List -->
         <DataGrid Grid.Row="1" x:Name="dgCourses" AutoGenerateColumns="False" 

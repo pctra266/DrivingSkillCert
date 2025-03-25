@@ -153,6 +153,7 @@ namespace DrivingSkillCert
 
         private void btnRefresh_Click(object sender, RoutedEventArgs e)
         {
+            txtFilter.Text = "";
             LoadCourses();
         }
 
@@ -185,6 +186,18 @@ namespace DrivingSkillCert
         private void btnGoToBankQuestions_Click(object sender, RoutedEventArgs e)
         {
             NavigationService?.Navigate(new ManageBankQuestion());
+        }
+
+        private void txtFilter_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            dgCourses.Items.Filter = FilterMethod;
+        }
+
+        private bool FilterMethod(object obj)
+        {
+            var course = (Course)obj;
+            return course.CourseName.Contains(txtFilter.Text, StringComparison.OrdinalIgnoreCase)
+                ||course.Teacher.FullName.Contains(txtFilter.Text, StringComparison.OrdinalIgnoreCase);
         }
     }
 }

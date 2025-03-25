@@ -148,5 +148,16 @@ namespace DrivingSkillCert
         {
             LoadData();
         }
+        private void txtFilter_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            dgQuestions.Items.Filter = FilterMethod;
+        }
+
+        private bool FilterMethod(object obj)
+        {
+            var question = (Question)obj;
+            return question.Question1.Contains(txtFilter.Text, StringComparison.OrdinalIgnoreCase)
+                || question.Answers.Any(a=>a.Answer1.Contains(txtFilter.Text, StringComparison.OrdinalIgnoreCase));
+        }
     }
 }

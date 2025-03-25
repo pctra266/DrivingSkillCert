@@ -129,6 +129,7 @@ namespace DrivingSkillCert
 
         private void btnRefresh_Click(object sender, RoutedEventArgs e)
         {
+            txtFilter.Text = "";
             LoadData();
         }
 
@@ -143,6 +144,17 @@ namespace DrivingSkillCert
             {
                 NavigationService?.Navigate(new ManageQuestionsAndAnswers(bankQuestion));
             }
+        }
+        private void txtFilter_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            dgBankQuestion.Items.Filter = FilterMethod;
+        }
+
+        private bool FilterMethod(object obj)
+        {
+            var bank = (BankQuestion)obj;
+            return bank.BankName.Contains(txtFilter.Text, StringComparison.OrdinalIgnoreCase)
+                || bank.Course.CourseName.Contains(txtFilter.Text, StringComparison.OrdinalIgnoreCase);
         }
     }
 }
