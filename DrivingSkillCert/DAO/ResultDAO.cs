@@ -20,7 +20,7 @@ namespace DrivingSkillCert.DAO
         {
             try
             {
-                return _context.Results.ToList();
+                return _context.Results.Where(r=>!r.IsDelete.Value).ToList();
             }
             catch (Exception ex)
             {
@@ -61,6 +61,7 @@ namespace DrivingSkillCert.DAO
                 }
             }
         }
+
         public static bool UpdateResult(int resultId, int score, bool passStatus)
         {
             try
@@ -83,6 +84,13 @@ namespace DrivingSkillCert.DAO
                 Console.WriteLine($"Error updating result: {ex.Message}");
             }
             return false;
+        }
+
+
+
+        public List<Result> GetExamResultOfUser(int userId, Exam exam)
+        {
+            return _context.Results.Where(r=>!r.IsDelete.Value&&r.UserId==userId&&r.Exam.ExamId==exam.ExamId).ToList();
         }
     }
 }

@@ -25,13 +25,13 @@
                   Margin="10" SelectionChanged="dgExams_SelectionChanged"
                   CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Visibility="Collapsed" Binding="{Binding ExamId}"></DataGridTextColumn>
+                <DataGridTextColumn Visibility="Collapsed" Binding="{Binding ExamId}" Width="*"></DataGridTextColumn>
                 <DataGridTextColumn Header="Course" Binding="{Binding Course.CourseName}" Width="*"></DataGridTextColumn>
                 <DataGridTextColumn Header="Teacher" Binding="{Binding Course.Teacher.FullName}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Type" Binding="{Binding Type}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Date" Binding="{Binding Date}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Room" Binding="{Binding Room}"></DataGridTextColumn>
-                <DataGridTemplateColumn Width="100">
+                <DataGridTextColumn Header="Type" Binding="{Binding Type}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Date" Binding="{Binding Date}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Room" Binding="{Binding Room}" Width="*"></DataGridTextColumn>
+                <DataGridTemplateColumn Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">

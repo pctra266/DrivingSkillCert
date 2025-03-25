@@ -37,12 +37,15 @@ namespace DrivingSkillCert
             }
             UserDAO userDAO = new UserDAO();
             User account = userDAO.getAccountByEmailAndPassword(username, password);
-            if(account == null)
+
+            if (account == null)
+
             {
                 MessageBox.Show("tài khoản không đúng");
                 return;
             }
-            if(account.IsDelete == true)
+
+            if (account.IsDelete == true)
             {
                 MessageBox.Show("tài khoản đã bị ban");
             }
@@ -52,7 +55,6 @@ namespace DrivingSkillCert
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
                 this.Close();
-                
             }
             else
             {

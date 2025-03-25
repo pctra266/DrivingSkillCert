@@ -40,7 +40,14 @@ namespace DrivingSkillCert
             btnGoToRegistration.Visibility = Visibility.Collapsed;
             btnGoToViewCertificate.Visibility = Visibility.Collapsed;
             btnGotoResultTeacherSite.Visibility = Visibility.Collapsed;
+            btnGoToStudentExam.Visibility = Visibility.Collapsed;
+            btnGotoRegisStudent.Visibility = Visibility.Collapsed;
+            btnGotoStudentCourse.Visibility = Visibility.Collapsed;
+            btnGotoTeacherCourse.Visibility = Visibility.Collapsed;
+            btnGotoRequest.Visibility = Visibility.Collapsed;
+            btnGotoApproveRequest.Visibility = Visibility.Collapsed;
             // Hiển thị các nút theo role
+            btnGotoNotification.Visibility = Visibility.Visible; // thông báo luôn hiển thị
             switch (role)
             {
                 case "Admin":
@@ -50,15 +57,21 @@ namespace DrivingSkillCert
                     btnGoToRegistration.Visibility = Visibility.Visible;
                     btnGoToUser.Visibility = Visibility.Visible;
                     btnGoToCertificate.Visibility = Visibility.Visible;
+                    
                     break;
                 case "Student":
                     btnGoToViewCertificate.Visibility = Visibility.Visible;
+                    btnGoToStudentExam.Visibility = Visibility.Visible;
+                    btnGotoRegisStudent.Visibility = Visibility.Visible;
+                    btnGotoStudentCourse.Visibility = Visibility.Visible;
                     break;
                 case "Teacher":
                     btnGotoResultTeacherSite.Visibility = Visibility.Visible;
+                    btnGotoTeacherCourse.Visibility = Visibility.Visible;
+                    btnGotoRequest.Visibility = Visibility.Visible;
                     break;
                 case "TrafficPolice":
-
+                    btnGotoApproveRequest.Visibility = Visibility.Visible;
                     break;
                 default:
                     MessageBox.Show("Vai trò không hợp lệ");
@@ -189,6 +202,54 @@ namespace DrivingSkillCert
 
             MainFrame.Navigate(new ExamStudent());
 
+        }
+
+        private void btnGotoRegisStudent_Click(object sender, RoutedEventArgs e)
+        {
+            btnGoToCourse.Visibility = Visibility.Collapsed;
+            btnGoToExam.Visibility = Visibility.Collapsed;
+            btnGoToUser.Visibility = Visibility.Collapsed;
+            btnGoToCertificate.Visibility = Visibility.Collapsed;
+            btnGoToResult.Visibility = Visibility.Collapsed;
+            btnGoToRegistration.Visibility = Visibility.Collapsed;
+
+            MainFrame.Navigate(new RegistrationCourse());
+
+
+
+        }
+
+        private void btnGotoStudentCourse_Click(object sender, RoutedEventArgs e)
+        {
+            btnGoToCourse.Visibility = Visibility.Collapsed;
+            btnGoToExam.Visibility = Visibility.Collapsed;
+            btnGoToUser.Visibility = Visibility.Collapsed;
+            btnGoToCertificate.Visibility = Visibility.Collapsed;
+            btnGoToResult.Visibility = Visibility.Collapsed;
+            btnGoToRegistration.Visibility = Visibility.Collapsed;
+
+            MainFrame.Navigate(new StudentCourse());
+
+        }
+
+        private void btnGotoTeacherCourse_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new TeacherRegistrationManagement());
+        }
+
+        private void btnGotoNotification_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new NotificationPage());
+        }
+
+        private void btnGotoRequest_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new CertificateServiceForTeacher());
+        }
+
+        private void btnGotoApproveRequest_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new CertificateServiceForTrafficPolice());
         }
     }
 }

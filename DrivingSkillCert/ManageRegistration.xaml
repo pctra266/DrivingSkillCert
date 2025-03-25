@@ -25,9 +25,9 @@
         <DataGrid Grid.Row="1" x:Name="dgRegistrations" AutoGenerateColumns="False" 
                   Margin="10" IsReadOnly="True" SelectionChanged="dgRegistrations_SelectionChanged">
             <DataGrid.Columns>
-                <DataGridTextColumn Visibility="Collapsed" Header="ID" Binding="{Binding RegistrationID}" Width="50"/>
-                <DataGridTextColumn Header="User ID" Binding="{Binding UserID}" Width="80"/>
-                <DataGridTextColumn Header="Course ID" Binding="{Binding CourseID}" Width="80"/>
+                <DataGridTextColumn Visibility="Collapsed" Header="ID" Binding="{Binding RegistrationId}" Width="50"/>
+                <DataGridTextColumn Header="User ID" Binding="{Binding UserId}" Width="80"/>
+                <DataGridTextColumn Header="Course ID" Binding="{Binding CourseId}" Width="80"/>
                 <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="100"/>
                 <DataGridTextColumn Header="Comments" Binding="{Binding Comments}" Width="*"/>
                 <DataGridTemplateColumn Width="100">

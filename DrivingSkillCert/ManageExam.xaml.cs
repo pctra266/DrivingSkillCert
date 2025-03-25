@@ -98,6 +98,12 @@ namespace DrivingSkillCert
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             Exam exam = new Exam();
+
+            if (editingExamId != null)
+            {
+                 exam = examDAO.FindExamById(editingExamId.Value);
+            }
+
             if (dpDate.Value==null || txtRoom.Text.Count()<1 || cbType.SelectionBoxItem.ToString().Count()<1) {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
