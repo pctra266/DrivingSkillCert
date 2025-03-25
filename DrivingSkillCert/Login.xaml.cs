@@ -27,15 +27,21 @@ namespace DrivingSkillCert
         }
 
         public void btnLogin_Click(object sender, RoutedEventArgs e)
-        {   
-            string username = txtUsername.Text;
-            string password = txtPassword.Password;
-            if (txtUsername == null || txtPassword == null)
+        {
+            string username = txtUsername.Text.Trim();
+            string password = txtPassword.Password.Trim();
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
-                MessageBox.Show("tên đăng nhập hoặc mật khẩu hông được để trống");
+                MessageBox.Show("Tên đăng nhập hoặc mật khẩu không được để trống");
+                return;
             }
             UserDAO userDAO = new UserDAO();
             User account = userDAO.getAccountByEmailAndPassword(username, password);
+            if(account == null)
+            {
+                MessageBox.Show("tài khoản không đúng");
+                return;
+            }
             if(account.IsDelete == true)
             {
                 MessageBox.Show("tài khoản đã bị ban");
