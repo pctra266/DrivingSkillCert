@@ -36,10 +36,10 @@
         <DataGrid Grid.Row="1" x:Name="dgCertificates" AutoGenerateColumns="False" 
                   Margin="10" IsReadOnly="True" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="CertificateId" Binding="{Binding CertificateId}" Width="50"/>
-                <DataGridTextColumn Header="Certificate Code" Binding="{Binding CertificateCode}" Width="80"/>
-                <DataGridTextColumn Header="Issued Date" Binding="{Binding IssuedDate}" Width="100"/>
-                <DataGridTextColumn Header="Expiration Date" Binding="{Binding ExpirationDate}" Width="100"/>
+                <DataGridTextColumn Header="CertificateId" Binding="{Binding CertificateId}" Width="*"/>
+                <DataGridTextColumn Header="Certificate Code" Binding="{Binding CertificateCode}" Width="*"/>
+                <DataGridTextColumn Header="Issued Date" Binding="{Binding IssuedDate}" Width="*"/>
+                <DataGridTextColumn Header="Expiration Date" Binding="{Binding ExpirationDate}" Width="*"/>
           
             </DataGrid.Columns>
         </DataGrid>
