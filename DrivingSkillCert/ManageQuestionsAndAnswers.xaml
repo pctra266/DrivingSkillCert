@@ -51,11 +51,19 @@
         <DataGrid Grid.Row="1" x:Name="dgQuestions" AutoGenerateColumns="False" Margin="10" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Visibility="Collapsed" Header="ID" Binding="{Binding QuestionID}" Width="*"/>
-                <DataGridTextColumn Header="Question" Binding="{Binding Question1}" Width="*"/>
-                <DataGridTemplateColumn Width="*">
+                <DataGridTemplateColumn Header="Question" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Question1}"
+               TextWrapping="Wrap"
+               />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="150">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                 <Button Content="Edit" Click="btnEditQuestion_Click" Margin="0,0,5,0"/>
                                 <Button Content="Delete" Click="btnDeleteQuestion_Click" Margin="0,0,5,0"/>
                             </StackPanel>
