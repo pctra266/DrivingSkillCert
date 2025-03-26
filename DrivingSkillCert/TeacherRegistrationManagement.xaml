@@ -80,7 +80,7 @@
                     </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Border Grid.Row="4" Background="LightSlateGray" Margin="10" Padding="10" Visibility="Visible" x:Name="detailPanel" >
+        <Border Grid.Row="4" Background="LightSlateGray" Margin="10" Padding="10" Visibility="Collapsed" x:Name="detailPanel" >
          
                 <Grid>
                     <Grid.ColumnDefinitions>
