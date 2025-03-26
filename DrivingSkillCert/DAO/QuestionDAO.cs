@@ -44,6 +44,8 @@ namespace DrivingSkillCert.DAO
             var question = context.Questions.Find(questionId);
             if (question != null)
             {
+                var answers = context.Answers.Where(a => a.QuestionId == questionId).ToList();
+                context.Answers.RemoveRange(answers);
                 context.Questions.Remove(question);
                 context.SaveChanges();
             }

@@ -20,7 +20,7 @@ namespace DrivingSkillCert.DAO
         {
             try
             {
-                return _context.Registrations.Include(r=>r.User).Include(r=>r.Course).ToList();
+                return _context.Registrations.Include(r=>r.User).Include(r=>r.Course).Where(r=>r.IsDelete==false).ToList();
             }
             catch (Exception ex)
             {
@@ -57,6 +57,7 @@ namespace DrivingSkillCert.DAO
                 if (registration != null)
                 {
                     registration.IsDelete = true;
+                    context.Registrations.Update(registration);
                     context.SaveChanges();
                 }
             }

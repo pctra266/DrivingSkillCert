@@ -56,7 +56,7 @@ namespace DrivingSkillCert.DAO
                 var result = context.Results.Find(resultId);
                 if (result != null)
                 {
-                    result.IsDelete = true;
+                    context.Results.Remove(result);
                     context.SaveChanges();
                 }
             }

@@ -17,7 +17,7 @@ namespace DrivingSkillCert.DAO
             using var context = new DrivingSkillCertContext();
             try
             {
-                return context.Courses.Include(t => t.Teacher).ToList();
+                return context.Courses.Include(t => t.Teacher).Where(c=>c.IsDelete==false).ToList();
             }
             catch (Exception ex)
             {
@@ -65,6 +65,7 @@ namespace DrivingSkillCert.DAO
                 if (course != null)
                 {
                     course.IsDelete = true;
+                    context.Courses.Update(course) ;
                     context.SaveChanges();
                 }
             }

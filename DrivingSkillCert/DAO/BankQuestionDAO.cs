@@ -42,17 +42,26 @@ namespace DrivingSkillCert.DAO
             }
         }
 
-        // Xóa BankQuestion (soft delete)
+        // Xóa BankQuestion (hard delete)
         public void DeleteBankQuestion(int bankID)
         {
             using var context = new DrivingSkillCertContext();
+            var bank = context.BankQuestions.FirstOrDefault(e => e.BankId == bankID);
 
-            var bank = context.BankQuestions.Where(e=>e.BankId == bankID).FirstOrDefault(); 
             if (bank != null)
             {
+                QuestionDAO questionDAO = new QuestionDAO();
+                var questionIds = context.Questions
+                                        .Where(question => question.BankId == bankID)
+                                        .Select(q => q.QuestionId)
+                                        .ToList();
+
+                questionIds.ForEach(questionDAO.DeleteQuestion);
+
                 context.Remove(bank);
                 context.SaveChanges();
             }
         }
+
     }
 }
