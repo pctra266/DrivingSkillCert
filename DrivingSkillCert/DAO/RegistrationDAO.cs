@@ -48,6 +48,16 @@ namespace DrivingSkillCert.DAO
             }
         }
 
+        public List<Registration> GetRegistrationsOfTeacher(int teacherId)
+        {
+            using (var context = new DrivingSkillCertContext())
+            {
+                return context.Registrations.Include(r => r.Course).Include(r=>r.User)
+                    .Where(c => c.Course.Teacher.UserId == teacherId && c.IsDelete == false && c.Course.IsDelete == false)
+                    .ToList();      
+            }
+        }
+
         // Xóa Registration theo RegistrationID
         public void DeleteRegistration(int registrationId)
         {

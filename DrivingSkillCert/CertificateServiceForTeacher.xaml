@@ -39,9 +39,10 @@
         <!-- DataGrid hiển thị danh sách đăng ký (đã Approved) -->
         <DataGrid x:Name="RegistrationsDataGrid" Grid.Row="1" AutoGenerateColumns="False" CanUserAddRows="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Registration Number" Binding="{Binding RegistrationId}" Width="*"/>
                 <DataGridTextColumn Header="Student" Binding="{Binding StudentName}" Width="*"/>
                 <DataGridTextColumn Header="Course" Binding="{Binding CourseName}" Width="*"/>
+                <DataGridTextColumn Header="Theory" Binding="{Binding TheoryScore}" Width="*"/>
+                <DataGridTextColumn Header="Practice" Binding="{Binding PracticeScore}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
 

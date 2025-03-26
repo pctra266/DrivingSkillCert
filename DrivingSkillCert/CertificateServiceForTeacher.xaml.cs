@@ -37,20 +37,33 @@ namespace DrivingSkillCert
                 return;
             }
 
-            var registrations = (from reg in _context.Registrations
-                                 join c in _context.Courses on reg.CourseId equals c.CourseId
-                                 join student in _context.Users on reg.UserId equals student.UserId
-                                 where c.TeacherId == teacher.UserId
-                                       && reg.Status == "Approved"
-                                       && reg.IsDelete == false
-                                 select new
-                                 {
-                                     reg.RegistrationId,
-                                     StudentName = student.FullName,
-                                     CourseName = c.CourseName,
-                                     reg.UserId,
-                                     reg.CourseId
-                                 }).ToList();
+            var registrations = (
+    from reg in _context.Registrations
+    join c in _context.Courses on reg.CourseId equals c.CourseId
+    join student in _context.Users on reg.UserId equals student.UserId
+    join exam in _context.Exams on c.CourseId equals exam.CourseId
+    join r in _context.Results on exam.ExamId equals r.ExamId
+    where reg.Status == "Approved"
+          && reg.IsDelete == false
+          && exam.IsDelete == false
+          && c.TeacherId == teacher.UserId
+    group new { r.Score, exam.Type } by new
+    {
+        reg.UserId,
+        student.FullName,
+        reg.CourseId,
+        c.CourseName
+    } into g
+    select new
+    {
+        UserId = g.Key.UserId,
+        StudentName = g.Key.FullName,
+        CourseId = g.Key.CourseId,
+        CourseName = g.Key.CourseName,
+        TheoryScore = g.Where(x => x.Type == "Theory").Max(x => (decimal?)x.Score) ?? 0, // Lấy điểm cao nhất của lý thuyết
+        PracticeScore = g.Where(x => x.Type == "Practice").Max(x => (decimal?)x.Score) ?? 0 // Lấy điểm cao nhất của thực hành
+    }).ToList(); // Lấy danh sách tất cả sinh viên
+
 
             RegistrationsDataGrid.ItemsSource = registrations;
         }
