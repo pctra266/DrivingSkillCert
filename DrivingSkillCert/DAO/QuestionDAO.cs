@@ -13,7 +13,7 @@ namespace DrivingSkillCert.DAO
         public List<Question> GetQuestionsByBankId(int bankId)
         {
             using var context = new DrivingSkillCertContext();
-            return context.Questions
+            return context.Questions.Include(x => x.Answers)
                 .Where(q => q.BankId == bankId)
                 .ToList();
         }

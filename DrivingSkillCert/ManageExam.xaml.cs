@@ -45,7 +45,10 @@ namespace DrivingSkillCert
             cmbCourse.ItemsSource = courseDAO.GetCourses();
         }
         private void btnRefresh_Click(object sender, RoutedEventArgs e)
+            
         {
+            txtFilter.Text = "";
+            cbTypeSearch.SelectedIndex = -1;
             LoadExams();
         }
 
@@ -144,6 +147,28 @@ namespace DrivingSkillCert
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
                 Window.GetWindow(this).Close();
+            }
+        }
+
+        private void txtFilter_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            dgExams.Items.Filter = FilterMethod;
+        }
+
+        private bool FilterMethod(object obj)
+        {
+            var exam = (Exam)obj;
+            return exam.Course.CourseName.Contains(txtFilter.Text, StringComparison.OrdinalIgnoreCase)
+                || exam.Course.Teacher.FullName.Contains(txtFilter.Text, StringComparison.OrdinalIgnoreCase)
+                || exam.Room.Contains(txtFilter.Text, StringComparison.OrdinalIgnoreCase);
+        }
+
+        private void cbTypeSearch_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (examDAO!=null&&dgExams!=null&& cbTypeSearch.SelectedItem is ComboBoxItem selectedItem)
+            {
+                string searchType = selectedItem.Content.ToString();
+                dgExams.ItemsSource = examDAO.GetExams().Where(e => e.Type.Contains(searchType)).ToList();
             }
         }
     }

@@ -6,6 +6,19 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ManageResult">
+    <Page.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="PapayaWhip"  Height="30" CornerRadius="3" Padding="7">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
 
     <Grid Background="LightSteelBlue">
         <Grid.RowDefinitions>
@@ -15,21 +28,28 @@
         </Grid.RowDefinitions>
 
         <!-- Header và các nút điều hướng -->
-        <StackPanel Orientation="Horizontal" Margin="10">
-            <Button x:Name="btnBack" Content="Back" Click="btnBack_Click" Margin="0,0,10,0" Padding="10,5"/>
-            <Button x:Name="btnAdd" Content="Add New Result" Click="btnAdd_Click" Margin="0,0,10,0" Padding="10,5"/>
-            <Button x:Name="btnRefresh" Content="Refresh" Click="btnRefresh_Click" Padding="10,5"/>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <Button x:Name="btnBack" Content="Back" Click="btnBack_Click" Margin="0,0,10,0" Padding="10,5"/>
+                <Button x:Name="btnAdd" Content="Add New Result" Click="btnAdd_Click" Margin="0,0,10,0" Padding="10,5"/>
+                <Button x:Name="btnRefresh" Content="Refresh" Click="btnRefresh_Click" Padding="10,5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <Label Content="Search:" ></Label>
+                <TextBox x:Name="txtFilter" Height="20" Width="200" TextChanged="txtFilter_TextChanged"></TextBox>
+            </StackPanel>
         </StackPanel>
+        
 
         <!-- Danh sách Result -->
         <DataGrid Grid.Row="1" x:Name="dgResults" AutoGenerateColumns="False" 
                   Margin="10" IsReadOnly="True" SelectionChanged="dgResults_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Visibility="Collapsed" Header="ID" Binding="{Binding ResultId}" Width="50"/>
-                <DataGridTextColumn Header="Exam ID" Binding="{Binding ExamId}" Width="80"/>
-                <DataGridTextColumn Header="User ID" Binding="{Binding UserId}" Width="80"/>
-                <DataGridTextColumn Header="Score" Binding="{Binding Score}" Width="80"/>
-                <DataGridTextColumn Header="Pass Status" Binding="{Binding PassStatus}" Width="80"/>
+                <DataGridTextColumn Header="Exam" Binding="{Binding Exam.Course.CourseName}" Width="*"/>
+                <DataGridTextColumn Header="User" Binding="{Binding User.FullName}" Width="*"/>
+                <DataGridTextColumn Header="Score" Binding="{Binding Score}" Width="*"/>
+                <DataGridTextColumn Header="Pass Status" Binding="{Binding PassStatus}" Width="*"/>
                 <DataGridTemplateColumn Width="100">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

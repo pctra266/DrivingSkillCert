@@ -6,6 +6,19 @@
         xmlns:local="clr-namespace:DrivingSkillCert"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="PapayaWhip"  Height="30" CornerRadius="3" Padding="7">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -45,7 +58,7 @@
             </Grid.ColumnDefinitions>
 
             <!-- Sidebar (Menu bên trái) -->
-            <StackPanel Grid.Column="0" Background="#EEE" Width="200">
+            <StackPanel Grid.Column="0" Background="#FFDFE0DF"  Width="200">
                 <Button x:Name="btnGoToCourse" Content="Go to Course" Width="150" Height="40" 
                  Margin="10" Click="GoToCourse_Click"/>
                 <Button x:Name="btnGoToExam" Content="Go to Exam" Width="150" Height="40" Margin="10" Click="GoToExam_Click" />

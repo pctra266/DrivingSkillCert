@@ -6,6 +6,19 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Manage Registration">
+    <Page.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="PapayaWhip"  Height="30" CornerRadius="3" Padding="7">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
 
     <Grid Background="LightCyan">
         <Grid.RowDefinitions>
@@ -15,20 +28,32 @@
         </Grid.RowDefinitions>
 
         <!-- Header với các nút Back, Add New Registration, Refresh -->
-        <StackPanel Orientation="Horizontal" Margin="10">
-            <Button x:Name="btnBack" Content="Back" Click="btnBack_Click" Margin="0,0,10,0" Padding="10,5"/>
-            <Button x:Name="btnAdd" Content="Add New Registration" Click="btnAdd_Click" Margin="0,0,10,0" Padding="10,5"/>
-            <Button x:Name="btnRefresh" Content="Refresh" Click="btnRefresh_Click" Padding="10,5"/>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <Button x:Name="btnBack" Content="Back" Click="btnBack_Click" Margin="0,0,10,0" Padding="10,5"/>
+                <Button x:Name="btnAdd" Content="Add New Bank" Click="btnAdd_Click" Margin="0,0,10,0" Padding="10,5"/>
+                <Button x:Name="btnRefresh" Content="Refresh" Click="btnRefresh_Click" Padding="10,5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <Label Content="Search:" Foreground="Black"></Label>
+                <TextBox x:Name="txtFilter" Height="20" Width="200" Margin="0,0,10,0" TextChanged="txtFilter_TextChanged"></TextBox>
+                <ComboBox x:Name="cbStatus" SelectionChanged="Status_SelectionChanged" Width="100" >
+                    <ComboBoxItem Tag="status" Content=""></ComboBoxItem>
+                    <ComboBoxItem Tag="status" Content="Pending"></ComboBoxItem>
+                    <ComboBoxItem Tag="status" Content="Approved"></ComboBoxItem>
+                    <ComboBoxItem Tag="status" Content="Rejected"></ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
         </StackPanel>
 
         <!-- DataGrid hiển thị danh sách Registration -->
         <DataGrid Grid.Row="1" x:Name="dgRegistrations" AutoGenerateColumns="False" 
                   Margin="10" IsReadOnly="True" SelectionChanged="dgRegistrations_SelectionChanged">
             <DataGrid.Columns>
-                <DataGridTextColumn Visibility="Collapsed" Header="ID" Binding="{Binding RegistrationId}" Width="50"/>
-                <DataGridTextColumn Header="User ID" Binding="{Binding UserId}" Width="80"/>
-                <DataGridTextColumn Header="Course ID" Binding="{Binding CourseId}" Width="80"/>
-                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="100"/>
+                <DataGridTextColumn Visibility="Collapsed" Header="ID" Binding="{Binding RegistrationId}" Width="*"/>
+                <DataGridTextColumn Header="User" Binding="{Binding User.FullName}" Width="*"/>
+                <DataGridTextColumn Header="Course" Binding="{Binding Course.CourseName}" Width="*"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*"/>
                 <DataGridTextColumn Header="Comments" Binding="{Binding Comments}" Width="*"/>
                 <DataGridTemplateColumn Width="100">
                     <DataGridTemplateColumn.CellTemplate>

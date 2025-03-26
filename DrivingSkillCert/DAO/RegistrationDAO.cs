@@ -20,7 +20,7 @@ namespace DrivingSkillCert.DAO
         {
             try
             {
-                return _context.Registrations.ToList();
+                return _context.Registrations.Include(r=>r.User).Include(r=>r.Course).ToList();
             }
             catch (Exception ex)
             {
