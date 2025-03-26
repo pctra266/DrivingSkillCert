@@ -36,14 +36,13 @@ namespace DrivingSkillCert
                 return;
             }
             UserDAO userDAO = new UserDAO();
-            User account = userDAO.getAccountByEmailAndPassword(username, password);
-
-            if (account == null)
-
+            User account = userDAO.getAccountByEmailAndPassword(username);
+            if (account == null || !BCrypt.Net.BCrypt.Verify(password, account.Password))
             {
-                MessageBox.Show("tài khoản không đúng");
+                MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng");
                 return;
             }
+
 
             if (account.IsDelete == true)
             {
@@ -68,5 +67,11 @@ namespace DrivingSkillCert
             this.Close();
         }
 
+        private void btnForgot_Click(object sender, RoutedEventArgs e)
+        {
+            ForgotPassword forgotPassword = new ForgotPassword();
+            forgotPassword.Show();
+            this.Close();
+        }
     }
 }

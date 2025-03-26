@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -27,11 +28,16 @@ namespace DrivingSkillCert
         }
 
         public void btnRegister_Click(object sender, RoutedEventArgs e)
-        {   
+        {
+            if (!IsValidPassword(txtPassword.Password))
+            {
+                MessageBox.Show("Mật khẩu phải có ít nhất 8 ký tự, bao gồm chữ hoa, chữ thường, số và ký tự đặc biệt.");
+                return;
+            }
             UserDAO userDAO = new UserDAO();
             string name = txtFullName.Text;
             string email = txtEmail.Text;
-            string password = txtPassword.Password;
+            string password = BCrypt.Net.BCrypt.HashPassword(txtPassword.Password);
             string phone = txtPhone.Text;
             string userclass = txtClass.Text;
             string school = txtSchool.Text;
@@ -66,5 +72,14 @@ namespace DrivingSkillCert
             loginWindow.Show();
             this.Close();
         }
+        private bool IsValidPassword(string password)
+        {
+            return password.Length >= 8 &&
+                   Regex.IsMatch(password, ".*[A-Z].*") &&
+                   Regex.IsMatch(password, ".*[a-z].*") &&
+                   Regex.IsMatch(password, ".*[0-9].*") &&
+                   Regex.IsMatch(password, ".*[^a-zA-Z0-9].*");
+        }
+
     }
 }

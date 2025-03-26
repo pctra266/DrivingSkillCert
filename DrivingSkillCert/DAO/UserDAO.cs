@@ -79,10 +79,10 @@ namespace DrivingSkillCert.DAO
             }
         }
         // hàm để đăng nhập 
-        public Model.Models.User getAccountByEmailAndPassword(string email, string password)
+        public Model.Models.User getAccountByEmailAndPassword(string email)
         {
             DrivingSkillCertContext context = new DrivingSkillCertContext();
-            return context.Users.FirstOrDefault(u => u.Email.Equals(email) && u.Password.Equals(password));
+            return context.Users.FirstOrDefault(u => u.Email.Equals(email) );
         }
         // hàm check trùng email khi đăng kí 
         public bool isEmailExist(string email)
