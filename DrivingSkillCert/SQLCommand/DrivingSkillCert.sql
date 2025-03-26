@@ -256,6 +256,8 @@ INSERT INTO Notifications (UserID, Message) VALUES
 (6, N'Bạn đã không đạt trong kỳ thi, vui lòng đăng ký thi lại.'),
 (7, N'Xin chúc mừng! Bạn đã vượt qua kỳ thi sát hạch.');
 
+UPDATE [DrivingSkillCert].[dbo].[Users]
+SET [password] = '$2a$11$G4QH45pmxlh6OZuiL7vO2uSpGXG34WBDacCfj6/PpI4VoDOFpnFQO'
 
 
 
