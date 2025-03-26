@@ -292,5 +292,6 @@ BEGIN
 
     SET @i = @i + 1;
 END
+SET @i = 1;
 SET @BankID=@BankID+1;
 END
