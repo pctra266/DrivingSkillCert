@@ -58,7 +58,10 @@ namespace DrivingSkillCert
         }
 
         private void btnRefresh_Click(object sender, RoutedEventArgs e)
+            
         {
+            cbStatus.SelectedIndex = 0;
+            txtFilter.Text = string.Empty;  
             LoadRegistrations();
         }
 
@@ -167,6 +170,23 @@ namespace DrivingSkillCert
         {
             detailPanel.Visibility = Visibility.Collapsed;
             ClearForm();
+        }
+        private void txtFilter_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            dgRegistrations.Items.Filter = FilterMethod;
+        }
+
+        private bool FilterMethod(object obj)
+        {
+            var reg = (Registration)obj;
+            return reg.User.FullName.Contains(txtFilter.Text, StringComparison.OrdinalIgnoreCase)
+                || reg.Course.CourseName.Contains(txtFilter.Text, StringComparison.OrdinalIgnoreCase);
+        }
+
+        private void Status_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(registrationDAO!=null && cbStatus.SelectedItem is ComboBoxItem cbItem)
+            dgRegistrations.ItemsSource = registrationDAO.GetRegistrations().Where(e=>e.Status.Contains(cbItem.Content.ToString()));
         }
     }
 }

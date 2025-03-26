@@ -81,72 +81,38 @@ namespace DrivingSkillCert
 
         private void GoToCourse_Click(object sender, RoutedEventArgs e)
         {
-            btnGoToCourse.Visibility = Visibility.Collapsed;
-            btnGoToExam.Visibility = Visibility.Collapsed;
-            btnGoToUser.Visibility = Visibility.Collapsed;
-            btnGoToCertificate.Visibility = Visibility.Collapsed;
-            btnGoToResult.Visibility = Visibility.Collapsed;
-            btnGoToRegistration.Visibility = Visibility.Collapsed;
+           
 
             MainFrame.Navigate(new ManageCourses());
         }
         private void GoToExam_Click(object sender, RoutedEventArgs e)
         {
-            btnGoToCourse.Visibility = Visibility.Collapsed;
-            btnGoToExam.Visibility = Visibility.Collapsed;
-            btnGoToUser.Visibility = Visibility.Collapsed;
-            btnGoToCertificate.Visibility = Visibility.Collapsed;
-            btnGoToResult.Visibility = Visibility.Collapsed;
-            btnGoToRegistration.Visibility = Visibility.Collapsed;
+           
 
             MainFrame.Navigate(new ManageExam());
         }
 
         private void btnGoToUser_Click(object sender, RoutedEventArgs e)
         {
-            btnGoToCourse.Visibility = Visibility.Collapsed;
-            btnGoToExam.Visibility = Visibility.Collapsed;
-            btnGoToUser.Visibility = Visibility.Collapsed;
-            btnGoToCertificate.Visibility = Visibility.Collapsed;
-            btnGoToResult.Visibility = Visibility.Collapsed;
-            btnGoToRegistration.Visibility = Visibility.Collapsed;
+           
 
             MainFrame.Navigate(new ManageUser());
         }
 
         private void btnGoToCertificate_Click(object sender, RoutedEventArgs e)
         {
-            btnGoToCourse.Visibility = Visibility.Collapsed;
-            btnGoToExam.Visibility = Visibility.Collapsed;
-            btnGoToUser.Visibility = Visibility.Collapsed;
-            btnGoToCertificate.Visibility = Visibility.Collapsed;
-            btnGoToResult.Visibility = Visibility.Collapsed;
-            btnGoToRegistration.Visibility = Visibility.Collapsed;
-
             MainFrame.Navigate(new ManageCertificate());
         }
 
         private void btnGoToResult_Click(object sender, RoutedEventArgs e)
         {
-            btnGoToCourse.Visibility = Visibility.Collapsed;
-            btnGoToExam.Visibility = Visibility.Collapsed;
-            btnGoToUser.Visibility = Visibility.Collapsed;
-            btnGoToCertificate.Visibility = Visibility.Collapsed;
-            btnGoToResult.Visibility = Visibility.Collapsed;
-            btnGoToRegistration.Visibility = Visibility.Collapsed;
 
             MainFrame.Navigate(new ManageResult());
         }
 
         private void btnGoToRegistration_Click(object sender, RoutedEventArgs e)
         {
-            btnGoToCourse.Visibility = Visibility.Collapsed;
-            btnGoToExam.Visibility = Visibility.Collapsed;
-            btnGoToUser.Visibility = Visibility.Collapsed;
-            btnGoToCertificate.Visibility = Visibility.Collapsed;
-            btnGoToResult.Visibility = Visibility.Collapsed;
-            btnGoToRegistration.Visibility = Visibility.Collapsed;
-
+          
             MainFrame.Navigate(new ManageRegistration());
         }
         private void Profile_Click(object sender, RoutedEventArgs e)
@@ -193,26 +159,14 @@ namespace DrivingSkillCert
 
         private void btnGoToStudentExam_Click(object sender, RoutedEventArgs e)
         {
-            btnGoToCourse.Visibility = Visibility.Collapsed;
-            btnGoToExam.Visibility = Visibility.Collapsed;
-            btnGoToUser.Visibility = Visibility.Collapsed;
-            btnGoToCertificate.Visibility = Visibility.Collapsed;
-            btnGoToResult.Visibility = Visibility.Collapsed;
-            btnGoToRegistration.Visibility = Visibility.Collapsed;
-
+           
             MainFrame.Navigate(new ExamStudent());
 
         }
 
         private void btnGotoRegisStudent_Click(object sender, RoutedEventArgs e)
         {
-            btnGoToCourse.Visibility = Visibility.Collapsed;
-            btnGoToExam.Visibility = Visibility.Collapsed;
-            btnGoToUser.Visibility = Visibility.Collapsed;
-            btnGoToCertificate.Visibility = Visibility.Collapsed;
-            btnGoToResult.Visibility = Visibility.Collapsed;
-            btnGoToRegistration.Visibility = Visibility.Collapsed;
-
+           
             MainFrame.Navigate(new RegistrationCourse());
 
 
@@ -221,13 +175,7 @@ namespace DrivingSkillCert
 
         private void btnGotoStudentCourse_Click(object sender, RoutedEventArgs e)
         {
-            btnGoToCourse.Visibility = Visibility.Collapsed;
-            btnGoToExam.Visibility = Visibility.Collapsed;
-            btnGoToUser.Visibility = Visibility.Collapsed;
-            btnGoToCertificate.Visibility = Visibility.Collapsed;
-            btnGoToResult.Visibility = Visibility.Collapsed;
-            btnGoToRegistration.Visibility = Visibility.Collapsed;
-
+          
             MainFrame.Navigate(new StudentCourse());
 
         }

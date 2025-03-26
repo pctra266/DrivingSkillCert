@@ -146,6 +146,7 @@ namespace DrivingSkillCert
 
         private void btnRefresh_Click(object sender, RoutedEventArgs e)
         {
+            txtFilter.Text = string.Empty;
             LoadData();
         }
         private void txtFilter_TextChanged(object sender, TextChangedEventArgs e)

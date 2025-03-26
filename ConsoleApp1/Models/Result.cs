@@ -22,8 +22,5 @@ public partial class Result
 
     public virtual User User { get; set; } = null!;
 
-    public override string? ToString()
-    {
-        return JsonSerializer.Serialize(this);
-    }
+
 }
