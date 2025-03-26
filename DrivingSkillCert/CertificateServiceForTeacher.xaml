@@ -41,8 +41,8 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Student" Binding="{Binding StudentName}" Width="*"/>
                 <DataGridTextColumn Header="Course" Binding="{Binding CourseName}" Width="*"/>
-                <DataGridTextColumn Header="Theory" Binding="{Binding TheoryScore}" Width="*"/>
-                <DataGridTextColumn Header="Practice" Binding="{Binding PracticeScore}" Width="*"/>
+                <DataGridTextColumn Header="Theory" Binding="{Binding MaxTheoryScore}" Width="*"/>
+                <DataGridTextColumn Header="Practice" Binding="{Binding MaxPracticeScore}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
 

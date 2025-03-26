@@ -37,21 +37,17 @@ namespace DrivingSkillCert
                 return;
             }
 
-            var registrations = (
-    from reg in _context.Registrations
-    join c in _context.Courses on reg.CourseId equals c.CourseId
-    join student in _context.Users on reg.UserId equals student.UserId
-    join exam in _context.Exams on c.CourseId equals exam.CourseId
-    join r in _context.Results on exam.ExamId equals r.ExamId
-    where reg.Status == "Approved"
-          && reg.IsDelete == false
-          && exam.IsDelete == false
-          && c.TeacherId == teacher.UserId
-    group new { r.Score, exam.Type } by new
+            var registrations =  (
+    from r in _context.Results
+    join e in _context.Exams on r.ExamId equals e.ExamId
+    join c in _context.Courses on e.CourseId equals c.CourseId
+    join u in _context.Users on r.UserId equals u.UserId
+    where c.TeacherId == 3
+    group new { r.Score, e.Type } by new
     {
-        reg.UserId,
-        student.FullName,
-        reg.CourseId,
+        u.UserId,
+        u.FullName,
+        c.CourseId,
         c.CourseName
     } into g
     select new
@@ -60,9 +56,10 @@ namespace DrivingSkillCert
         StudentName = g.Key.FullName,
         CourseId = g.Key.CourseId,
         CourseName = g.Key.CourseName,
-        TheoryScore = g.Where(x => x.Type == "Theory").Max(x => (decimal?)x.Score) ?? 0, // Lấy điểm cao nhất của lý thuyết
-        PracticeScore = g.Where(x => x.Type == "Practice").Max(x => (decimal?)x.Score) ?? 0 // Lấy điểm cao nhất của thực hành
-    }).ToList(); // Lấy danh sách tất cả sinh viên
+        MaxPracticeScore = g.Where(x => x.Type == "Practice").Max(x => (decimal?)x.Score) ?? 0,
+        MaxTheoryScore = g.Where(x => x.Type == "Theory").Max(x => (decimal?)x.Score) ?? 0
+    }).ToList();
+
 
 
             RegistrationsDataGrid.ItemsSource = registrations;
