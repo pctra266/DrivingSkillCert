@@ -54,7 +54,6 @@ namespace DrivingSkillCert
         {
 
             txtUserName.Text = string.Empty;
-            txtPassword.Text = string.Empty;
             txtEmail.Text = string.Empty;
             txtPhone.Text = string.Empty;
             txtClass.Text = string.Empty;
@@ -73,6 +72,7 @@ namespace DrivingSkillCert
 
         }
 
+
         private void btnRefresh_Click(object sender, RoutedEventArgs e)
         {
             loadUser();
@@ -89,11 +89,10 @@ namespace DrivingSkillCert
             {
                 editingUserId = selectedUser.UserId;
                 txtUserName.Text = selectedUser.FullName;
-                txtPassword.Text = selectedUser.Password;
                 txtEmail.Text = selectedUser.Email;
                 txtPhone.Text = selectedUser.Phone;
                 txtClass.Text = selectedUser.Class;
-                cmbRole.SelectedItem = selectedUser.Role;
+                cmbRole.SelectedValue = selectedUser.Role; 
                 txtSchool.Text = selectedUser.School;
                 detailPanel.Visibility = Visibility.Visible;
             }
@@ -124,9 +123,8 @@ namespace DrivingSkillCert
             try
             {
                 if (string.IsNullOrWhiteSpace(txtUserName.Text) ||
-                    string.IsNullOrWhiteSpace(txtPassword.Text) ||
                     string.IsNullOrWhiteSpace(txtEmail.Text) ||
-                    string.IsNullOrWhiteSpace(cmbRole.SelectedItem.ToString()))
+                    cmbRole.SelectedItem == null)
                 {
                     MessageBox.Show("Please fill in all required fields");
                     return;
@@ -135,7 +133,6 @@ namespace DrivingSkillCert
                 var user = new User
                 {
                     FullName = txtUserName.Text,
-                    Password = txtPassword.Text,
                     Email = txtEmail.Text,
                     Phone = txtPhone.Text,
                     Class = txtClass.Text,
@@ -143,24 +140,14 @@ namespace DrivingSkillCert
                     School = txtSchool.Text
                 };
 
-
                 if (editingUserId.HasValue)
                 {
-                    var existingUser = userDAO.GetUsers().FirstOrDefault(u => u.Email.Equals(txtEmail.Text, StringComparison.OrdinalIgnoreCase));
-                    if (existingUser != null)
-                    {
-                        MessageBox.Show("Email already exists. Please use another email.");
-                        return;
-                    }
-
                     user.UserId = editingUserId.Value;
                     userDAO.UpdateUser(user);
-                    loadUser();
                 }
                 else
                 {
                     userDAO.AddUser(user);
-                    loadUser();
                 }
 
                 loadUser();
@@ -171,6 +158,9 @@ namespace DrivingSkillCert
                 MessageBox.Show($"Error saving user: {ex.Message}");
             }
         }
+
+
+
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {

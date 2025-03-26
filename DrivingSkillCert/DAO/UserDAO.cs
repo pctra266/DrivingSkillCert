@@ -21,7 +21,7 @@ namespace DrivingSkillCert.DAO
         {
             try
             {   
-                return _context.Users.Where(u => !u.Role.Equals("Admin") ).ToList();
+                return _context.Users.Where(u => !u.Role.Equals("Admin") ).Where(x=>x.IsDelete==false).ToList();
             }
             catch (Exception ex)
             {

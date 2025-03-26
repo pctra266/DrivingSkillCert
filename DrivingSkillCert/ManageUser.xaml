@@ -46,12 +46,10 @@
                 <DataGridTextColumn Visibility="Collapsed" Header="ID" Binding="{Binding UserId}" Width="50"/>
                 <DataGridTextColumn Header="FullName" Binding="{Binding FullName}" Width="*"/>
                 <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="80"/>
-                <DataGridTextColumn Header="Password" Binding="{Binding Password}" Width="100"/>
                 <DataGridTextColumn Header="Role" Binding="{Binding Role}" Width="100"/>
                 <DataGridTextColumn Header="Class" Binding="{Binding Class}" Width="100"/>
                 <DataGridTextColumn Header="School" Binding="{Binding School}" Width="100"/>
                 <DataGridTextColumn Header="Phone" Binding="{Binding Phone}" Width="100"/>
-                <DataGridTextColumn Header="IsDelete" Binding="{Binding IsDelete}" Width="100"/>
                 <DataGridTemplateColumn Width="100">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -77,12 +75,8 @@
                     <TextBox x:Name="txtEmail" Width="200"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                    <TextBlock Text="Password:" Width="100"/>
-                    <TextBox x:Name="txtPassword" Width="200"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                     <TextBlock Text="Role:" Width="100"/>
-                    <ComboBox x:Name="cmbRole" Width="200">
+                    <ComboBox x:Name="cmbRole" Width="200" SelectedValuePath="Content">
                         <ComboBoxItem Content="Student" />
                         <ComboBoxItem Content="Teacher" />
                         <ComboBoxItem Content="TrafficPolice" />
@@ -99,10 +93,6 @@
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                     <TextBlock Text="Phone:" Width="100"/>
                     <TextBox x:Name="txtPhone" Width="200"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                    <TextBlock Text="Is Delete:" Width="100"/>
-                    <CheckBox x:Name="chkIsDelete"/>
                 </StackPanel>
                 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
